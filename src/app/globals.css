@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * =============================================================================
+ * CSS Variables for Theme Management
+ * =============================================================================
+ * These variables are automatically switched by next-themes based on the
+ * current theme (light/dark). Define your color palette here.
+ */
+
+@layer base {
+  :root {
+    /* Light theme colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 221 15% 34%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+
+    --chart-1: 12 76% 61%;
+
+    --chart-2: 173 58% 39%;
+
+    --chart-3: 197 37% 24%;
+
+    --chart-4: 43 74% 66%;
+
+    --chart-5: 27 87% 67%;
+
+    /* Custom brand colors */
+    --color-navy: 212 78% 19%;
+    --color-navy-foreground: 0 0% 98%;
+    --color-blue: 224 66% 52%;
+    --color-blue-foreground: 0 0% 98%;
+    --color-purple: 276 66% 52%;
+    --color-purple-foreground: 0 0% 98%;
+    --color-yellow: 54 81% 58%;
+    --color-yellow-foreground: 212 78% 19%;
+    --brand-secondary: 214 12% 33%;
+    --brand-secondary-foreground: 0 0% 98%;
+
+    /* =========================================================================
+     * Typography System
+     * =========================================================================
+     * Format: --font-{name}: font-size; --line-{name}: line-height;
+     * Usage: text-{name} class in Tailwind
+     */
+
+    /* Title Hero Styles */
+    --font-title-hero: 5.3125rem;
+    --line-title-hero: 5.875rem;
+    --font-title-hero-sm: 4.5rem;
+    --line-title-hero-sm: 5.3125rem;
+
+    /* Title Page */
+    --font-title-page: 3rem;
+    --line-title-page: 7.5rem;
+
+    /* Title 1 Styles */
+    --font-title-1: 4rem;
+    --line-title-1: 5.1875rem;
+    --font-title-1-sm: 3rem;
+    --line-title-1-sm: 4.1875rem;
+
+    /* Title 2 Styles */
+    --font-title-2: 2.8125rem;
+    --line-title-2: 3.375rem;
+    --font-title-2-alt: 2.8125rem;
+    --line-title-2-alt: 3.9375rem;
+
+    /* Heading 1 Styles */
+    --font-heading-1: 1.5rem;
+    --line-heading-1: 2rem;
+
+    /* Heading 2 Styles */
+    --font-heading-2: 1.125rem;
+    --line-heading-2: 1.6875rem;
+
+    /* Subtitle 1 Styles */
+    --font-subtitle-1: 2rem;
+    --line-subtitle-1: 2.8125rem;
+
+    /* Subtitle 2 Styles */
+    --font-subtitle-2: 2rem;
+    --line-subtitle-2: 2.8125rem;
+
+    /* Body Base Styles */
+    --font-body-base: 1rem;
+    --line-body-base: 1.6875rem;
+    --font-body-base-alt: 1rem;
+    --line-body-base-alt: 1.5rem;
+
+    /* Body Small Styles */
+    --font-body-small: 0.875rem;
+    --line-body-small: 1.375rem;
+    --font-body-small-alt: 0.875rem;
+    --line-body-small-alt: 1.25rem;
+
+    /* Label Styles */
+    --font-label: 1rem;
+    --line-label: 1.25rem;
+    --font-label-small: 0.875rem;
+    --line-label-small: 1.25rem;
+
+    /* M3 Display Styles */
+    --font-m3-display-lg: 3.5625rem;
+    --line-m3-display-lg: 4rem;
+    --font-m3-display-md: 2.8125rem;
+    --line-m3-display-md: 3.25rem;
+    --font-m3-display-sm: 2.25rem;
+    --line-m3-display-sm: 2.75rem;
+
+    /* M3 Headline Styles */
+    --font-m3-headline-lg: 2rem;
+    --line-m3-headline-lg: 2.5rem;
+    --font-m3-headline-md: 1.75rem;
+    --line-m3-headline-md: 2.25rem;
+    --font-m3-headline-sm: 1.5rem;
+    --line-m3-headline-sm: 2rem;
+
+    /* M3 Title Styles */
+    --font-m3-title-lg: 1.375rem;
+    --line-m3-title-lg: 1.75rem;
+    --font-m3-title-md: 1rem;
+    --line-m3-title-md: 1.5rem;
+    --font-m3-title-sm: 0.875rem;
+    --line-m3-title-sm: 1.25rem;
+
+    /* M3 Label Styles */
+    --font-m3-label-lg: 0.875rem;
+    --line-m3-label-lg: 1.25rem;
+    --font-m3-label-md: 0.75rem;
+    --line-m3-label-md: 1rem;
+    --font-m3-label-sm: 0.6875rem;
+    --line-m3-label-sm: 1rem;
+
+    /* M3 Body Styles */
+    --font-m3-body-lg: 1rem;
+    --line-m3-body-lg: 1.5rem;
+    --font-m3-body-md: 0.875rem;
+    --line-m3-body-md: 1.25rem;
+    --font-m3-body-sm: 0.75rem;
+    --line-m3-body-sm: 1rem;
+  }
+
+  .dark {
+    /* Dark theme colors */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 221 8% 59%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    
+    /* Custom brand colors */
+    --color-navy: 212 78% 19%;
+    --color-navy-foreground: 0 0% 98%;
+    --color-blue: 224 66% 52%;
+    --color-blue-foreground: 0 0% 98%;
+    --color-purple: 276 66% 52%;
+    --color-purple-foreground: 0 0% 98%;
+    --color-yellow: 54 81% 58%;
+    --color-yellow-foreground: 212 78% 19%;
+    --brand-secondary: 214 12% 33%;
+    --brand-secondary-foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-none;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Lenis smooth scroll styles */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+
+/* GRADIENT */
+.text-geadient-1{
+  background: linear-gradient(92.52deg, #FFFFFF -0.77%, rgba(234, 213, 63, 0.38) 228.41%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

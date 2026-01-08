@@ -1,0 +1,79 @@
+# =============================================================================
+# Docker Compose Configuration
+# =============================================================================
+# This file provides configurations for both development and production.
+#
+# Commands:
+#   Development: docker compose up --build
+#   Production:  docker compose --profile prod up --build
+#   Stop all:    docker compose down
+#
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # Development Service (Default)
+  # ---------------------------------------------------------------------------
+  # Hot-reload enabled, source code mounted as volume
+  # Use: docker compose up --build
+  # ---------------------------------------------------------------------------
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: weezard-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount source code for hot-reload
+      - .:/app
+      # Prevent node_modules from being overwritten
+      - /app/node_modules
+      # Preserve .next build cache
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - WATCHPACK_POLLING=true
+    env_file:
+      - .env.local
+    networks:
+      - weezard-network
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Production Service
+  # ---------------------------------------------------------------------------
+  # Optimized, standalone build for production deployment
+  # Use: docker-compose --profile prod up --build
+  # ---------------------------------------------------------------------------
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: weezard-prod
+    ports:
+      - "3000:3000"
+    profiles:
+      - prod
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    env_file:
+      - .env.production
+    networks:
+      - weezard-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  weezard-network:
+    driver: bridge
+

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Weezard - Starter Next.js",
+    "description": "Um starter Next.js pronto para produção com i18n, temas e animações"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "retry": "Tentar novamente"
+  },
+  "home": {
+    "title": "Bem-vindo ao Weezard",
+    "description": "Uma base Next.js limpa e escalável",
+    "getStarted": "Começar"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "select": "Selecionar idioma",
+    "en": "Inglês",
+    "pt": "Português"
+  }
+}
+

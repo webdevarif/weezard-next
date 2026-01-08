@@ -1,0 +1,27 @@
+<svg width="146" height="146" viewBox="0 0 146 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.3">
+<mask id="mask0_69714_3289" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="146" height="146">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M87.6 146H58.4L58.4 108.248L31.705 134.943L11.0575 114.295L37.7525 87.6H0L0 58.4H37.7525L11.0575 31.7054L31.705 11.0573L58.4 37.7527L58.4 0H87.6L87.6 37.7527L114.295 11.0573L134.943 31.7046L108.247 58.4L146 58.4V87.6L108.247 87.6L134.943 114.295L114.295 134.943L87.6 108.248V146Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_69714_3289)">
+<g clip-path="url(#clip0_69714_3289)">
+<path d="M146 146H0V0H146V146Z" fill="white"/>
+<path d="M146 146H0V0H146V146Z" fill="#0E6FFF"/>
+<g filter="url(#filter0_f_69714_3289)">
+<path d="M168.63 62.7813L6.57031 62.7812L6.57031 -21.8987L168.63 -21.8987V62.7813Z" fill="#8F5BFF"/>
+<ellipse cx="81.7124" cy="56.1158" rx="81.7124" ry="56.1158" transform="matrix(0.965926 0.258819 0.258819 -0.965926 -54.75 178.895)" fill="#00F0FF"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_69714_3289" x="-101.566" y="-81.8984" width="330.197" height="345.938" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_69714_3289"/>
+</filter>
+<clipPath id="clip0_69714_3289">
+<rect width="146" height="146" fill="white" transform="matrix(1 0 0 -1 0 146)"/>
+</clipPath>
+</defs>
+</svg>
