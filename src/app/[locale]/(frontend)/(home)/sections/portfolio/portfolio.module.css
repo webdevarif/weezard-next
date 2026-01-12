@@ -1,0 +1,22 @@
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+.sliderColUp {
+  animation: scrollUp 30s linear infinite;
+}
+
+.sliderColDown {
+  animation: scrollDown 30s linear infinite;
+}
+
+.sliderContainer:hover .sliderColUp,
+.sliderContainer:hover .sliderColDown {
+  animation-play-state: paused;
+}

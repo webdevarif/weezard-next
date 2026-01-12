@@ -8,10 +8,12 @@ import Pricing from "../../components/sections/Pricing";
 import Faq from "../../components/sections/Faq";
 import HeroBanner from "./sections/hero-banner";
 import CoreServices from "../../components/sections/core-services";
+import WorkProcess from "./sections/work-process";
 import BlogSection from "./sections/blogs";
 import TestimonialsSection from "./sections/testimonials";
 import ResultsNumber from "./sections/results-number";
 import CtaVision from "./sections/cta-vision";
+import Portfolio from "./sections/portfolio";
 
 /**
  * Home Page Content
@@ -294,8 +296,10 @@ export function PageContent() {
         <HeroBanner />
         <CoreServices />
         <ResultsNumber />
+        <Portfolio />
         <Pricing data={data.pricing}/>
         <TestimonialsSection />
+        <WorkProcess />
         <BlogSection />
         <CtaVision primaryButton={{ label: "Book a Free Consultation", href: "#" }}/>
         <Faq data={data.faqs}/>
