@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
 import { Link } from '@/lib/i18n/routing';
+import type { StaticImageData } from 'next/image';
 import BlogBanner1 from './assets/blog-banner-1.png';
 import BlogBanner2 from './assets/blog-banner-2.png';
 import BlogBanner3 from './assets/blog-banner-3.png';
@@ -75,7 +76,15 @@ const BlogSection = () => {
         </motion.section>
     )
 }
-const BlogCard = ({ card }: { card: any }) => (
+interface BlogCard {
+  banner: StaticImageData;
+  title: string;
+  slug: string;
+  date: string;
+  comments: string;
+}
+
+const BlogCard = ({ card }: { card: BlogCard }) => (
     
     <div className="grid__item flex flex-col h-full">
         {/* BANNER */}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
 import { Link } from '@/lib/i18n/routing';
+import type { StaticImageData } from 'next/image';
 import AuthorPic1 from './assets/author-pic-1.png';
 import AuthorPic2 from './assets/author-pic-2.png';
 import AuthorPic3 from './assets/author-pic-3.png';
@@ -92,7 +93,14 @@ const TestimonialsSection = () => {
         </motion.section>
     )
 }
-const TestimonialCard = ({ card }: { card: any }) => {
+interface TestimonialCard {
+  authorPic: StaticImageData;
+  name: string;
+  text: string;
+  ratings: number;
+}
+
+const TestimonialCard = ({ card }: { card: TestimonialCard }) => {
     const fullStars = Math.floor(card.ratings) 
     const decimal = card.ratings - fullStars 
     const hasHalfStar = decimal >= 0.25 && decimal < 0.75 

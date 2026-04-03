@@ -1,9 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/lib/animations/framer";
-import { ThemeToggle } from "../../components/ui/ThemeToggle";
+import { staggerContainer, fadeInUp } from '@/lib/animations';
+import React from 'react';
 import Pricing from "../../components/sections/Pricing";
 import Faq from "../../components/sections/Faq";
 import HeroBanner from "./sections/hero-banner";
@@ -19,8 +18,6 @@ import Portfolio from "./sections/portfolio";
  * Home Page Content
  */
 export function PageContent() {
-  const t = useTranslations("home");
-  
   const data = {
     
     pricing: {

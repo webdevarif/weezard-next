@@ -94,8 +94,9 @@ const Carousel = React.forwardRef<
         if (!api) return
         if (index === api.selectedScrollSnap()) return
 
-        // Safely reset autoplay if the plugin is present (type-safe fix for TS error)
-        (api.plugins()?.autoplay as any)?.reset?.()
+        // Safely reset autoplay if the plugin is present
+        const autoplayPlugin = api.plugins()?.autoplay as { reset?: () => void } | undefined
+        autoplayPlugin?.reset?.()
 
         api.scrollTo(index)
       },
