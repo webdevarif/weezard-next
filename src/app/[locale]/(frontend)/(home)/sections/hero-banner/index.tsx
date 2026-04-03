@@ -31,7 +31,7 @@ const HeroBanner = () => {
         <motion.div variants={fadeInLeft} className="hidden md:block w-[145px] aspect-square absolute z-[-1] top-[10px] -start-[50px]" 
             animate={{ rotate: 360 }} transition={{ repeat: Infinity, repeatType: "loop", duration: 20,  delay: 0, ease: "linear", }}
         >
-            <Image src={CoolShape} alt='Cool Shape' fill objectFit='contain' objectPosition='center'/>
+            <Image src={CoolShape} alt='Cool Shape' fill style={{objectFit: 'contain', objectPosition: 'center'}}/>
         </motion.div>
         <div className="container">
             <div className="grid lg:grid-cols-[6fr_7fr] gap-x-[20px] items-center">
@@ -179,14 +179,14 @@ const HeroBanner = () => {
                         </svg>
                         
                         <motion.div variants={fadeInUp} className='absolute bottom-0 start-0 h-[calc(100%+30px)] w-full z-[2]'>
-                            <Image src={ManLaptop} alt='Man Laptop' fill objectFit='contain'/>
+                            <Image src={ManLaptop} alt='Man Laptop' fill style={{objectFit: 'contain'}}/>
                         </motion.div>
 
                         <motion.div
                             variants={revealFromLeft}
                             className="absolute -top-[30%] start-0 min-w-[55vw] h-full overflow-hidden"
                             >
-                            <Image src={Shape1} alt="Shape" fill objectFit='contain' objectPosition='left' />
+                            <Image src={Shape1} alt="Shape" fill style={{objectFit: 'contain', objectPosition: 'left'}} />
                         </motion.div>
 
 
@@ -235,7 +235,7 @@ const HeroBanner = () => {
 
 
                         <motion.div variants={fadeInUp} className='w-[85px] h-[65px] absolute -end-[20px] bottom-[40%] z-[3] drop-shadow-[-15px_20px_40px_rgba(181,217,245,0.75)]'>
-                            <Image src={GrowUpIcon} alt='Grow Up' fill objectFit='contain'/>
+                            <Image src={GrowUpIcon} alt='Grow Up' fill style={{objectFit: 'contain'}}/>
 
                         </motion.div>
                         

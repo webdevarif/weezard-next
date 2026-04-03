@@ -80,7 +80,7 @@ const BlogCard = ({ card }: { card: any }) => (
     <div className="grid__item flex flex-col h-full">
         {/* BANNER */}
         <div className="w-full aspect-[5/4] relative rounded-[15px] overflow-hidden">
-            <Image src={card.banner} alt={card.title} fill objectFit='cover' objectPosition='center'/>
+            <Image src={card.banner} alt={card.title} fill style={{objectFit: 'cover', objectPosition: 'center'}}/>
         </div>
 
         {/* CARD INFORMATION */}

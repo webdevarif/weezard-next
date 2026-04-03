@@ -104,7 +104,7 @@ const TestimonialCard = ({ card }: { card: any }) => {
         <div className="flex flex-col h-full text-center">
             {/* AUTHOR PIC */}
             <div className="mx-auto relative z-[1] -mb-[30px] lg:-mb-[50px] w-[90px] min-w-[90px] lg:w-[115px] lg:min-w-[115px] aspect-[1] relative rounded-full border-[2px] border-solid border-[#495162]">
-                <Image src={card.authorPic} alt={''} fill objectFit='cover' objectPosition='center'/>
+                <Image src={card.authorPic} alt={''} fill style={{objectFit: 'cover', objectPosition: 'center'}}/>
             </div>
 
             {/* CARD INFORMATION */}
