@@ -50,7 +50,7 @@ export function PageContent() {
             },
             actionButton: {
                 label: "Talk to us",
-                href: "#"
+                href: "/contact-us"
             }
         },
         {
@@ -90,8 +90,8 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Talk to us",
-                href: "#"
+                label: "Get Started",
+                href: "/contact-us"
             }
         },
         {
@@ -127,8 +127,8 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Talk to us",
-                href: "#"
+                label: "Claim This Package",
+                href: "/contact-us"
             }
         },
       ]

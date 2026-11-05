@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '../../ui/button';
 import Link from 'next/link';
 import CardPricing from './CardPricing';
+import { ExpandableParagraph } from '@/app/[locale]/components/ui/expandable-paragraph';
 import { PricingSectionDataProps } from './types';
 
 const Pricing = ({
@@ -17,7 +18,15 @@ const Pricing = ({
                     {data?.header.caption && <span className='lg:text-semibold text-body-small !leading-[1.7] inline-block mb-[10px] px-[14px] py-[5px] bg-white/10 rounded-full uppercase'>{data?.header.caption}</span>}
                     {data.header.title && <h2 className='text-subtitle-2 sm:text-title-2 font-bold'>{data.header.title}</h2>}
                 </div>
-                {data.header.content && <div className='text-heading-2'><p>{data.header.content}</p></div>}
+                {data.header.content && (
+                    <div className='text-heading-2'>
+                        <ExpandableParagraph 
+                            text={data.header.content}
+                            variant="yellow"
+                            align="left"
+                        />
+                    </div>
+                )}
             </div>
         </div>}
         <div className="container">

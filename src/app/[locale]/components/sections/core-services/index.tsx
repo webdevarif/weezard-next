@@ -9,6 +9,7 @@ import { Link } from '@/lib/i18n/routing';
 import { GoArrowUpRight } from 'react-icons/go';
 import { GrCheckmark } from "react-icons/gr";
 import { cn } from '@/lib/utils';
+import { ExpandableParagraph } from '@/app/[locale]/components/ui/expandable-paragraph';
 
 const CoreServices = () => {
     const data ={
@@ -86,7 +87,12 @@ const CoreServices = () => {
                 </div>
                 <div className="grid_item">
                     <div className="lg:ps-[20px] relative before:content-[unset] lg:before:content-[''] before:w-[3px] before:h-full before:absolute before:start-0 before:top-0 before:bg-[linear-gradient(347.21deg,rgba(199,176,254,0.3)_-9.25%,_#903DD1_72.89%)]">
-                        <p className="text-heading-2 font-normal">Weezard offers fully managed IT services that provide all aspects of your digital needs. Our services include (but are not limited to) designing custom websites, providing scalable web development services, implementing digital marketing strategies, and more. We manage every detail with precision and expertise. Our goal is to empower your small businesses by taking the tech load off your shoulders. The sole purpose is to produce seamless, scalable solutions under your own brand. No matter where you&apos;re based, Basildon, London, anywhere in the UK or across the globe, Weezard is here to help turn your business into a brand.</p>
+                        <ExpandableParagraph 
+                            text="Weezard offers fully managed IT services that provide all aspects of your digital needs. Our services include (but are not limited to) designing custom websites, providing scalable web development services, implementing digital marketing strategies, and more. We manage every detail with precision and expertise. Our goal is to empower your small businesses by taking the tech load off your shoulders. The sole purpose is to produce seamless, scalable solutions under your own brand. No matter where you're based, Basildon, London, anywhere in the UK or across the globe, Weezard is here to help turn your business into a brand."
+                            className="text-heading-2 font-normal"
+                            variant="blue"
+                            align="center"
+                        />
                     </div>
                 </div>
             </div>
@@ -96,7 +102,7 @@ const CoreServices = () => {
                 {data.list && data.list.map((card, index) => (
                    <div key={index} className="grid__item flex flex-col h-full" style={{ '--card-color': card.textColor } as React.CSSProperties}>
                     {/* HEADER */}
-                    <div className={cn('mb-[20px] rounded-[20px] p-[30px] grid items-center grid-cols-[70px_1fr] gap-[16px]', card.headerBg, card.headerText)}>
+                    <div className={cn('mb-[20px] rounded-[20px] p-[20px] sm:p-[30px] grid items-center grid-cols-[60px_1fr] sm:grid-cols-[70px_1fr] gap-[14px] sm:gap-[16px]', card.headerBg, card.headerText)}>
                         <div>
                             <Image src={card.icon} alt='Web Development' />
                         </div>
@@ -106,7 +112,7 @@ const CoreServices = () => {
                         </div>
                     </div>
                     <div className={cn('rounded-[20px] flex-grow flex flex-col', card.contentBg)}>
-                        <div className="p-[24px]">
+                        <div className="p-[18px] sm:p-[24px]">
                             {card.items && <ul className="text-[16px] font-normal space-y-[16px]">
                                 {card.items.map((item, x) =>(
                                     <li key={x} className="grid grid-cols-[16px_1fr] gap-[7px]">
@@ -118,7 +124,7 @@ const CoreServices = () => {
                                 ))}
                             </ul>}
                         </div>
-                        <div className="border-t-[2px] border-solid border-[#C9CCD0]/50 mt-auto px-[24px] py-[20px] group/card-footer">
+                        <div className="border-t-[2px] border-solid border-[#C9CCD0]/50 mt-auto px-[18px] sm:px-[24px] py-[16px] sm:py-[20px] group/card-footer">
                             <Link className={cn('flex no-underline justify-between gap-[10px] items-center font-semibold text-[var(--card-color)]')} href={card.button_url}
                             style={{ color: `${card.textColor}`}}>
                                 {card.button_label && <div className='underline underline-offset-2'>{card.button_label}</div>}

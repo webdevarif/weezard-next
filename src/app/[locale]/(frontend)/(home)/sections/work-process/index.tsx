@@ -130,7 +130,7 @@ const ProcessSection = () => {
             <CarouselContent className="-ml-4">
               {steps.map((step, index) => (
                 <CarouselItem key={index} className="basis-[100%] pl-4">
-                  <div className="bg-white rounded-[13px] px-[60px] py-[50px] text-center relative h-full z-[1]">
+                  <div className="bg-white rounded-[13px] px-[24px] sm:px-[50px] py-[35px] sm:py-[50px] text-center relative h-full z-[1]">
                     {index < steps.length - 1 && (
                         <div className="absolute bottom-[10px] end-0 flex justify-end w-full h-[calc(100%-60px)] pointer-events-none">
                             <svg width="147" height="222" viewBox="0 0 147 222" fill="none" xmlns="http://www.w3.org/2000/svg">

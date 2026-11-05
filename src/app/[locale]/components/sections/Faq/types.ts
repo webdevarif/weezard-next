@@ -11,6 +11,7 @@ export type FaqCategoryProps = {
 
 export type FaqDataProps = {
     variant?: string; 
+    defaultOpenIndex?: number;
     title?: string; 
     info?: string; 
     description?: string; 

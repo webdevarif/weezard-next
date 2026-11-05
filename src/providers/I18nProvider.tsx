@@ -14,9 +14,8 @@ interface I18nProviderProps {
  */
 export function I18nProvider({ children, messages, locale }: I18nProviderProps) {
   return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
+    <NextIntlClientProvider messages={messages} locale={locale} timeZone="UTC">
       {children}
     </NextIntlClientProvider>
   );
 }
-

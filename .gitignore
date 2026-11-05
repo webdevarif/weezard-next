@@ -44,3 +44,5 @@ next-env.d.ts
 # Docker
 .docker
 
+# agent
+.agents

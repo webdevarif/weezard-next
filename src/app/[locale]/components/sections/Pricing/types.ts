@@ -1,21 +1,19 @@
-
-export interface PricingSectionDataProps{
+export interface PricingSectionDataProps {
     header?: {
-        caption?: string,
-        title: string,
-        content: string,
-    },
-    list?: PricingCardDataProps[],
+        caption?: string;
+        title: string;
+        content: string;
+    };
+    list?: PricingCardDataProps[];
     footer?: {
-        title: string,
-        button_label: string,
-        button_url: string,
-    },
-
-
+        title: string;
+        button_label: string;
+        button_url: string;
+    };
 }
+
 export interface PricingCardDataProps {
-    isFeatured?: boolean
+    isFeatured?: boolean;
     title: string;
     info: string;
     price: string;
@@ -25,5 +23,9 @@ export interface PricingCardDataProps {
         items: {
             text: string;
         }[];
-    }
+    };
+    actionButton?: {
+        label: string;
+        href?: string;
+    };
 }

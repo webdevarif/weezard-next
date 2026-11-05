@@ -7,7 +7,8 @@ import type { StaticImageData } from 'next/image';
 import BlogBanner1 from './assets/blog-banner-1.png';
 import BlogBanner2 from './assets/blog-banner-2.png';
 import BlogBanner3 from './assets/blog-banner-3.png';
-import { Carousel, CarouselContent, CarouselItem } from "@/app/[locale]/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem } from "@/app/[locale]/components/ui/carousel";
+import { ExpandableParagraph } from '@/app/[locale]/components/ui/expandable-paragraph';
 
 const BlogSection = () => {
     const data = {
@@ -41,13 +42,18 @@ const BlogSection = () => {
             initial="hidden"
             animate="visible">
             <div className="container">
-                <div className="grid grid-cols-1 gap-[20px] lg:grid-cols-[6fr_5fr] text-center lg:text-start">
+                <div className="grid grid-cols-1 gap-[20px] lg:grid-cols-[6fr_5fr] text-start">
                     <div className="grid_item space-y-[10px]">
                         <span className='text-blue bg-blue/10 text-[14px] inline-flex leading-[1.7] uppercase py-[5px] px-[14px] font-semibold rounded-full'>Blog</span>
                         <h3 className="text-[32px] lg:text-[45px] leading-[1.2] font-dm-sans -tracking-[0.01em] text-navy font-bold">Dive into Our Resources for Greater Insights</h3>
                     </div>
                     <div className="grid_item">
-                        <p className="text-heading-2 font-normal">At Weezard, we believe in empowering our partners with the tools and insights they need to succeed. We offer a range of tools, including expert blog posts and downloadable guides, to help you navigate the world of design, development, and digital marketing. Unlock your next big idea with the magic of Weezard.</p>
+                        <ExpandableParagraph 
+                            text="At Weezard, we believe in empowering our partners with the tools and insights they need to succeed. We offer a range of tools, including expert blog posts and downloadable guides, to help you navigate the world of design, development, and digital marketing. Unlock your next big idea with the magic of Weezard."
+                            className="text-heading-2 font-normal"
+                            variant="blue"
+                            align="left"
+                        />
                     </div>
                 </div>
             </div>

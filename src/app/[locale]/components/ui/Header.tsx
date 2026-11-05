@@ -33,12 +33,16 @@ const Header = ({ variant }: { variant: "default" | "secondary" }) => {
       href: '/services',
       items: [
         {
-          label: 'Service 1',
-          href: '/services/service-1'
+          label: 'Web Design',
+          href: '/services/web-design'
         },
         {
-          label: 'Service 2',
-          href: '/services/service-2'
+          label: 'Web Development',
+          href: '/services/web-development'
+        },
+        {
+          label: 'Digital Marketing',
+          href: '/services/digital-marketing'
         }
       ]
     },
@@ -295,20 +299,23 @@ function DesktopDropdown({ item }: { item: MenuItem }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <button 
+    <div 
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      <Link 
+        href={item.href}
         className="inline-flex items-center justify-center gap-1 text-heading-2 text-secondary px-[10px] py-[6px] font-medium rounded-none hover:text-purple transition-colors border-b border-transparent hover:border-purple"
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
       >
-        {item.label}
+        <span>{item.label}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
           <ChevronDown className="h-4 w-4" />
         </motion.div>
-      </button>
+      </Link>
       <AnimatePresence>
         {isOpen && (
           <motion.ul 
@@ -338,7 +345,7 @@ function DesktopDropdown({ item }: { item: MenuItem }) {
           </motion.ul>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }
 
@@ -348,18 +355,28 @@ function MobileSubMenu({ item, onLinkClick }: { item: MenuItem; onLinkClick: () 
 
   return (
     <div>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-2 text-base font-medium hover:text-primary transition-colors"
-      >
-        <span>{item.label}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
+      <div className="flex items-center justify-between w-full py-2">
+        <Link
+          href={item.href}
+          onClick={onLinkClick}
+          className="text-base font-medium hover:text-primary transition-colors flex-1"
         >
-          <ChevronDown className="h-4 w-4" />
-        </motion.div>
-      </button>
+          {item.label}
+        </Link>
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-1 text-muted-foreground hover:text-primary transition-colors"
+          aria-label={`Toggle ${item.label} menu`}
+        >
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ChevronDown className="h-4 w-4" />
+          </motion.div>
+        </button>
+      </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div 
