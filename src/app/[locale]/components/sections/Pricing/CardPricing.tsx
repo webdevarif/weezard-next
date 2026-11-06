@@ -8,26 +8,28 @@ import { PricingCardDataProps } from './types';
 /**
  * CardPricing Component
  * Renders individual pricing tier cards (Starter, Growth, Scale)
- * Matches exact Figma specifications for royal blue featured Growth card
+ * Matches exact Figma mobile (430px) and desktop specifications
  */
 const CardPricing = ({ data } : { data: PricingCardDataProps }) => {
   const isGrowth = Boolean(data.isFeatured || data.title?.toLowerCase() === 'growth');
-  const buttonLabel = data.actionButton?.label || (isGrowth ? 'Get Started' : data.title?.toLowerCase() === 'scale' ? 'Claim This Package' : 'Talk to us');
+  const isScale = data.title?.toLowerCase() === 'scale';
+  const buttonLabel = data.actionButton?.label || (isGrowth ? 'Get Growth Package' : isScale ? 'Claim This Package' : 'Talk to us');
 
   return (
     <div className={cn(
-      `rounded-[16px] h-full p-[20px] sm:p-[30px] relative z-[1] border border-solid gap-y-[24px] lg:gap-y-[36px] flex flex-col transition-all duration-300`,
+      `rounded-[16px] h-full p-[20px] sm:p-[28px] lg:p-[30px] relative z-[1] border border-solid gap-y-[20px] sm:gap-y-[24px] lg:gap-y-[32px] flex flex-col transition-all duration-300`,
       isGrowth 
         ? 'bg-[#305CD8] border-[#4C75F2] shadow-[0px_20px_50px_rgba(48,92,216,0.35)]' 
-        : 'bg-[linear-gradient(180deg,_#305CD8_-71.64%,_rgba(48,92,216,0)_37.88%)] border-[#1D4ED8]/30 shadow-[0px_20px_60px_rgba(37,75,148,0.13)]'
+        : 'bg-[#092856] bg-[linear-gradient(180deg,_#305CD8_-71.64%,_rgba(48,92,216,0)_37.88%)] border-[#305CD8] shadow-[0px_20px_60px_rgba(37,75,148,0.13)]'
     )}>
+        {/* Top Glow for Featured Growth Card */}
         {isGrowth && (
-          <span className='absolute w-full h-[70px] bg-[#265CF4] start-2/4 -top-5 -translate-x-2/4 rounded-[50%] z-[-1] blur-[42px] pointer-events-none'></span>
+          <span className='absolute w-full max-w-[420px] h-[70px] bg-[#265CF4] start-2/4 -top-5 -translate-x-2/4 rounded-[50%] z-[-1] blur-[36px] sm:blur-[42px] pointer-events-none'></span>
         )}
 
         {/* CARD HEADER */}
-        <div className='grid grid-cols-[50px_1fr] gap-[20px] items-center'>
-            <span>
+        <div className='flex items-center gap-[16px] sm:gap-[20px]'>
+            <span className='shrink-0 w-[54px] h-[54px] flex items-center justify-center'>
                 {data.title?.toLowerCase() === 'starter' ? (
                     /* Starter Card: 4-Point Star Icon */
                     <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,14 +92,14 @@ const CardPricing = ({ data } : { data: PricingCardDataProps }) => {
                     </svg>
                 )}
             </span>
-            <div className='space-y-[8px]'>
+            <div className='space-y-[6px] min-w-0'>
                 {data.title && (
                   <h5 className='text-[18px] lg:text-[20px] leading-[27px] tracking-[0.01em] font-bold text-white font-dm-sans'>
                     {data.title}
                   </h5>
                 )}
                 {data.info && (
-                  <p className={cn("text-body-small", isGrowth ? "text-white/85" : "text-navy-foreground/80")}>
+                  <p className={cn("text-[13px] sm:text-[14px] leading-[1.5]", isGrowth ? "text-white/85" : "text-navy-foreground/80")}>
                     {data.info}
                   </p>
                 )}
@@ -106,15 +108,15 @@ const CardPricing = ({ data } : { data: PricingCardDataProps }) => {
         
         {/* CARD PRICE */}
         <div className={cn(
-          'rounded-[16px] p-[20px] flex items-center gap-[6px]',
+          'rounded-[16px] py-[16px] px-[20px] sm:py-[20px] flex items-center gap-[8px]',
           isGrowth ? 'bg-yellow text-navy shadow-sm' : 'bg-[#092856]'
         )}>
-            <span className={cn('text-[14px]', isGrowth ? 'text-navy/90 font-medium' : 'text-white/80')}>
+            <span className={cn('text-[13px] sm:text-[14px] font-medium shrink-0', isGrowth ? 'text-navy/90' : 'text-white/80')}>
               Starts at/
             </span>
             {data.price && (
               <strong className={cn(
-                'text-title-2 md:text-title-1 font-dm-sans leading-[1] font-bold',
+                'text-[30px] sm:text-[36px] lg:text-[44px] font-dm-sans leading-[1] font-bold tracking-tight',
                 isGrowth ? 'text-navy' : 'text-white'
               )}>
                 {data.price}
@@ -124,12 +126,12 @@ const CardPricing = ({ data } : { data: PricingCardDataProps }) => {
 
         {/* CARD FEATURES */}
         {data.features && (
-          <div className='space-y-[20px]'>
+          <div className='space-y-[14px] sm:space-y-[18px] lg:space-y-[20px]'>
             {data.features && data.features?.items && data.features.items.map((item, x) => (
-                <div key={x} className='flex gap-[10px] items-start'>
-                    <CheckIcon className='min-w-[20px] mt-[3px]' color={data.features.checkColor} secondaryColor={data.features.secondaryColor}/>
+                <div key={x} className='flex gap-[12px] items-start'>
+                    <CheckIcon className='w-[20px] h-[20px] shrink-0 mt-[2px]' color={data.features.checkColor} secondaryColor={data.features.secondaryColor}/>
                     <span className={cn(
-                      'text-[14px] sm:text-[15px] leading-[1.6]',
+                      'text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.5]',
                       isGrowth ? 'text-white font-normal' : 'text-[#BACEEA]'
                     )}>
                       {item.text}
@@ -140,24 +142,26 @@ const CardPricing = ({ data } : { data: PricingCardDataProps }) => {
         )}
 
         {/* CARD ACTION */}
-        <div className="mt-auto">
+        <div className="mt-auto pt-[4px]">
             <Button 
               asChild
               variant={'default'} 
               className={cn(
-                'text-body-small font-bold w-full py-[14px] px-[10px] items-center gap-[6px] h-[48px] rounded-full transition-all duration-200',
+                'text-body-small font-bold w-full h-[48px] rounded-full py-[14px] px-[16px] items-center justify-center gap-[8px] transition-all duration-200',
                 isGrowth 
                   ? 'bg-yellow hover:bg-yellow/90 text-navy shadow-md' 
-                  : 'bg-[#0F4097] hover:bg-[#2196F3] text-white'
+                  : isScale
+                    ? 'border border-[#305CD8] bg-transparent hover:bg-[#305CD8]/20 text-white'
+                    : 'bg-[#0F4097] hover:bg-[#2196F3] text-white'
               )}
             >
                 <Link href={data.actionButton?.href || "/contact-us"}>
                   <span>{buttonLabel}</span>
-                  <svg className='min-w-[24px] !h-auto' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className='w-[20px] h-[20px] shrink-0' width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path 
                         d="M6 18L18 6M18 6H10M18 6V14" 
-                        stroke={isGrowth ? "#092856" : "currentColor"} 
-                        strokeWidth="1.8" 
+                        stroke={isGrowth ? "#092856" : "#ffffff"} 
+                        strokeWidth="2" 
                         strokeLinecap="round" 
                         strokeLinejoin="round"
                       />

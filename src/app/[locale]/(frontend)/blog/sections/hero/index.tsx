@@ -43,7 +43,7 @@ export const BlogHeroSection: React.FC<BlogHeroSectionProps> = ({
       </div>
 
       {/* Middle Content Container matching 1014px Figma Frame */}
-      <div className="relative z-10 w-full max-w-[1014px] mx-auto px-4 sm:px-6 py-20 sm:py-24 lg:py-[110px] flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-[1014px] mx-auto px-4 sm:px-6 py-14 sm:py-24 lg:py-[110px] flex flex-col items-center">
         <HeroContent />
         <HeroSearchBar onSearch={onSearch} />
         <CategoryFilters

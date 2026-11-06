@@ -65,13 +65,13 @@ export const BlogFeedSection: React.FC<BlogFeedSectionProps> = ({
     (activeCategory === "Latest Blog" || activeCategory === "Marketing");
 
   return (
-    <section id="blog-feed-container" className="w-full bg-[#FAFCFF] py-14 sm:py-18 lg:py-20">
+    <section id="blog-feed-container" className="w-full bg-[#FAFCFF] py-10 sm:py-16 lg:py-20">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* 1. Featured Top Showcase Card (on Page 1) */}
         {showFeatured && (
           <>
             <FeaturedBlogCard article={featuredBlog} />
-            <div className="h-[1px] bg-[#CAD6F4] my-12 sm:my-14 lg:my-16" />
+            <div className="h-[1px] bg-[#CAD6F4] my-10 sm:my-14 lg:my-16" />
           </>
         )}
 

@@ -66,7 +66,7 @@ export function PageContent() {
             icon: "",
             title: "Growth",
             info: "Ideal for growing businesses looking to get recognized as a brand and gain unique presence",
-            price: "$150",
+            price: "$150+",
             features: {
                 checkColor: "#EAD53F",
                 secondaryColor: "#092856",
@@ -98,7 +98,7 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Get Started",
+                label: "Get Growth Package",
                 href: "/contact-us"
             }
         },
@@ -106,7 +106,7 @@ export function PageContent() {
             icon: "",
             title: "Scale",
             info: "Designed for businesses that need a complete digital presence and ongoing IT support",
-            price: "$300",
+            price: "$300+",
             features: {
                 checkColor: "#A93CFF",
                 secondaryColor: "#FAFAFA",

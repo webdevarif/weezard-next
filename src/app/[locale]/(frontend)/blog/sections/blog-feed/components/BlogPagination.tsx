@@ -43,7 +43,8 @@ export const BlogPagination: React.FC<BlogPaginationProps> = ({
   return (
     <nav
       aria-label="Blog pagination"
-      className="mt-14 sm:mt-16 lg:mt-20 flex items-center justify-center gap-3 sm:gap-5"
+      /* Pagination container: centered with compact mt-10 on mobile and mt-16 sm:mt-20 on desktop */
+      className="mt-10 sm:mt-16 lg:mt-20 flex items-center justify-center gap-3 sm:gap-5"
     >
       {/* Prev Button */}
       <button
@@ -52,7 +53,7 @@ export const BlogPagination: React.FC<BlogPaginationProps> = ({
         disabled={currentPage === 1}
         aria-label="Previous page"
         className={cn(
-          "w-10 h-10 flex items-center justify-center transition-all duration-200 cursor-pointer",
+          "w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 cursor-pointer",
           currentPage === 1
             ? "text-[#CAD6F4] cursor-not-allowed"
             : "text-[#305CD8] hover:scale-110 active:scale-95"
@@ -71,7 +72,7 @@ export const BlogPagination: React.FC<BlogPaginationProps> = ({
               type="button"
               onClick={() => handlePage(p)}
               className={cn(
-                "w-10 h-10 sm:w-11 sm:h-11 rounded-full font-dm-sans text-[15px] sm:text-[16px] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95",
+                "w-9 h-9 sm:w-10 sm:h-10 rounded-full font-dm-sans text-[14px] sm:text-[15px] flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95",
                 isActive
                   ? "bg-[#305CD8] text-white font-bold shadow-[0_4px_16px_rgba(48,92,216,0.35)]"
                   : "text-[#495162] hover:text-[#305CD8] font-normal"
@@ -90,7 +91,7 @@ export const BlogPagination: React.FC<BlogPaginationProps> = ({
         disabled={currentPage === totalPages}
         aria-label="Next page"
         className={cn(
-          "w-10 h-10 flex items-center justify-center transition-all duration-200 cursor-pointer",
+          "w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 cursor-pointer",
           currentPage === totalPages
             ? "text-[#CAD6F4] cursor-not-allowed"
             : "text-[#305CD8] hover:scale-110 active:scale-95"

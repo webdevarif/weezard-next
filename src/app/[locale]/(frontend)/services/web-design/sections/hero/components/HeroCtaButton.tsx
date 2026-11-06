@@ -18,10 +18,10 @@ import { fadeInUp } from "@/lib/animations/framer";
 
 export const HeroCtaButton: React.FC = () => {
   return (
-    <motion.div variants={fadeInUp} className="pt-2 sm:pt-3">
+    <motion.div variants={fadeInUp} className="pt-2 sm:pt-3 w-full sm:w-auto flex justify-center lg:justify-start">
       <Link
         href="/contact-us"
-        className="group inline-flex items-center justify-center gap-2.5 w-full sm:w-[290px] h-[56px] sm:h-[60px] rounded-full bg-[#305CD8] hover:bg-[#2348b8] text-white text-[15px] sm:text-[16px] font-semibold shadow-[0_10px_25px_rgba(48,92,216,0.3)] hover:shadow-[0_14px_30px_rgba(48,92,216,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+        className="group inline-flex items-center justify-center gap-2.5 w-full max-w-[390px] sm:w-[290px] h-[48px] sm:h-[60px] rounded-full bg-[#305CD8] hover:bg-[#2348b8] text-white text-[14px] sm:text-[16px] font-semibold shadow-[0_10px_25px_rgba(48,92,216,0.3)] hover:shadow-[0_14px_30px_rgba(48,92,216,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
       >
         <span>Audit Your Website for Free</span>
         <svg

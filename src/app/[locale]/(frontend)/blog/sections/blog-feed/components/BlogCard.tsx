@@ -72,8 +72,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, index }) => {
             </div>
           </div>
 
-          {/* Inner Divider */}
-          <div className="h-[1px] bg-[#F1F5F9] my-3.5" />
+          {/* Inner Divider - Royal Blue line */}
+          <div className="h-[1px] bg-[#305CD8] my-3.5 sm:my-4" />
 
           {/* Title */}
           <h3 className="font-bold font-dm-sans text-navy text-[17px] sm:text-[18px] lg:text-[19px] leading-[1.38] group-hover:text-[#305CD8] transition-colors line-clamp-3">

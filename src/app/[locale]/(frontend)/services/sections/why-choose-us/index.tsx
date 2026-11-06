@@ -16,14 +16,14 @@ import { WhyChooseUsGraphic } from "./components/WhyChooseUsGraphic";
 export const WhyChooseUsSection: React.FC = () => {
   return (
     <motion.section
-      className="py-[60px] sm:py-[80px] lg:py-[120px] bg-white overflow-hidden"
+      className="py-[48px] sm:py-[80px] lg:py-[120px] bg-white overflow-hidden"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
     >
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-y-[40px] gap-x-[36px] items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-y-[36px] lg:gap-x-[36px] items-center">
           {/* Left Column: Text Content & Points */}
           <div className="w-full">
             <WhyChooseUsContent />

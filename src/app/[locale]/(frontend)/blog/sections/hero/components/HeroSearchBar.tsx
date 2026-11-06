@@ -30,9 +30,10 @@ export const HeroSearchBar: React.FC<HeroSearchBarProps> = ({ onSearch }) => {
       initial="hidden"
       animate="visible"
       onSubmit={handleSubmit}
+      /* Centered search bar with 600px desktop max-width and full width on mobile */
       className="w-full max-w-[600px] mx-auto mt-7 sm:mt-9"
     >
-      <div className="relative flex items-center h-[56px] sm:h-[60px] w-full rounded-[8px] bg-white px-4 sm:px-5 shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all focus-within:ring-2 focus-within:ring-[#305CD8]/30">
+      <div className="relative flex items-center h-[54px] sm:h-[60px] w-full rounded-[8px] bg-white px-4 sm:px-5 shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all focus-within:ring-2 focus-within:ring-[#305CD8]/30">
         <Search className="w-5 h-5 text-[#64748B] shrink-0 stroke-[2]" />
         <input
           type="text"

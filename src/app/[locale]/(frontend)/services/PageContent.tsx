@@ -57,7 +57,7 @@ export function PageContent() {
           icon: "",
           title: "Growth",
           info: "Ideal for growing businesses looking to get recognized as a brand and gain unique presence",
-          price: "$150",
+          price: "$150+",
           features: {
             checkColor: "#EAD53F",
             secondaryColor: "#092856",
@@ -73,7 +73,7 @@ export function PageContent() {
             ],
           },
           actionButton: {
-            label: "Get Started",
+            label: "Get Growth Package",
             href: "/contact-us",
           },
         },
@@ -81,7 +81,7 @@ export function PageContent() {
           icon: "",
           title: "Scale",
           info: "Designed for businesses that need a complete digital presence and ongoing IT support",
-          price: "$300",
+          price: "$300+",
           features: {
             checkColor: "#A93CFF",
             secondaryColor: "#FAFAFA",
@@ -104,7 +104,7 @@ export function PageContent() {
       footer: {
         title: `Create a custom price quote with <strong>Weezard</strong>`,
         button_label: "Get Your Custom Quote",
-        button_url: "#",
+        button_url: "/contact-us",
       },
     },
 
@@ -147,7 +147,7 @@ export function PageContent() {
       question: {
         title: "Still have a questions?",
         button_label: "Contact Us",
-        button_url: "#",
+        button_url: "/contact-us",
       },
     },
   };
@@ -161,7 +161,9 @@ export function PageContent() {
       <CoreServices />
 
       {/* 3. Transparent Pricing Packages */}
-      <Pricing data={data.pricing} />
+      <div id="pricing" className="scroll-mt-20">
+        <Pricing data={data.pricing} />
+      </div>
 
       {/* 4. Why Small Businesses Choose Us */}
       <WhyChooseUsSection />
@@ -170,11 +172,12 @@ export function PageContent() {
       <section className="py-[40px] sm:py-[60px] lg:py-[80px]">
         <div className="container">
           <PromoBanner
+            variant="center"
             title="Let’s Build Something Great Together"
-            description="Whether it's a new website, rebranding, or ongoing IT support, Weezard is here to help your business grow."
-            primaryButton={{ label: "Get Started Now", href: "/contact" }}
+            description="Whether you need a website, marketing help, or a full digital upgrade—we’re ready when you are"
+            primaryButton={{ label: "Start a Project", href: "/contact" }}
             secondaryButton={{ label: "Book a Free Consultation", href: "/consultation" }}
-            showBorder={true}
+            showBorder={false}
           />
         </div>
       </section>

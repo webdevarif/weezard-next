@@ -24,7 +24,7 @@ export const HeroContent: React.FC = () => {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="flex flex-col items-start text-start space-y-5 sm:space-y-6 max-w-[600px] z-10"
+      className="flex flex-col items-center text-center lg:items-start lg:text-start space-y-4 sm:space-y-6 max-w-[600px] mx-auto lg:mx-0 z-10"
     >
       {/* 5-Star Rating & Trust */}
       <HeroTrustBadge />

@@ -52,8 +52,8 @@ export const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({ article }) =
 
         {/* Right Column: Article Details */}
         <div className="w-full lg:w-[50%] xl:w-[48%] flex flex-col justify-center space-y-3.5 sm:space-y-4 lg:space-y-5">
-          {/* Top category & meta row */}
-          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
+          {/* Top category & meta row: wraps cleanly on mobile so category + date sit on row 1 and comments on row 2 per screenshot */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-4">
             <span className="bg-[#305CD8] text-white text-[11px] sm:text-[12px] font-dm-sans font-semibold tracking-wide uppercase px-3 py-1 rounded-[6px]">
               {article.category}
             </span>
@@ -70,7 +70,7 @@ export const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({ article }) =
           </div>
 
           {/* Title */}
-          <h2 className="text-[24px] sm:text-[28px] lg:text-[34px] font-bold font-dm-sans text-navy leading-[1.25] tracking-tight hover:text-[#305CD8] transition-colors">
+          <h2 className="text-[22px] sm:text-[28px] lg:text-[34px] font-bold font-dm-sans text-navy leading-[1.3] sm:leading-[1.25] tracking-tight hover:text-[#305CD8] transition-colors">
             <Link href={`/blog/${article.slug}`}>
               {article.title}
             </Link>
@@ -78,16 +78,16 @@ export const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({ article }) =
 
           {/* Excerpt */}
           {article.excerpt && (
-            <p className="text-secondary text-[14px] sm:text-[15px] lg:text-[16px] font-dm-sans leading-[1.65] line-clamp-4">
+            <p className="text-secondary text-[14px] sm:text-[15px] lg:text-[16px] font-dm-sans leading-[1.65]">
               {article.excerpt}
             </p>
           )}
 
-          {/* Read More Link */}
+          {/* Read More Link (underlined per Figma mobile screenshot) */}
           <div className="pt-1">
             <Link
               href={`/blog/${article.slug}`}
-              className="inline-flex items-center text-[#305CD8] font-dm-sans font-semibold text-[14px] sm:text-[15px] hover:underline underline-offset-4"
+              className="inline-flex items-center text-[#305CD8] font-dm-sans font-semibold text-[14px] sm:text-[15px] underline underline-offset-4 hover:text-[#2045b5]"
             >
               Read More
             </Link>

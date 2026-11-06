@@ -19,13 +19,14 @@ export const WhyChooseUsGraphic: React.FC = () => {
       variants={fadeInUp}
       className="relative w-full max-w-[620px] mx-auto lg:mx-0 flex justify-center items-center"
     >
-      <div className="relative w-full aspect-[760/657] overflow-hidden rounded-[16px] sm:rounded-[24px]">
+      <div className="relative w-full aspect-[760/657]">
         <Image
           src={WhyChooseUsBanner}
           alt="Why Small Businesses Choose Us"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 620px"
           className="object-contain"
+          priority
         />
       </div>
     </motion.div>
