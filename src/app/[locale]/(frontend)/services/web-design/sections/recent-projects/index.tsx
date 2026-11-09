@@ -13,6 +13,7 @@
 import React from "react";
 import RecentProjectsHeader from "./components/RecentProjectsHeader";
 import RecentProjectsGrid from "./components/RecentProjectsGrid";
+import RecentProjectsMobileSlider from "./components/RecentProjectsMobileSlider";
 import BottomFadeOverlay from "./components/BottomFadeOverlay";
 
 export const RecentProjectsSection: React.FC = () => {
@@ -27,7 +28,10 @@ export const RecentProjectsSection: React.FC = () => {
         {/* Centered Section Header */}
         <RecentProjectsHeader />
 
-        {/* Asymmetric 4-Card Portfolio Showcase */}
+        {/* Mobile & Tablet Slider (< 1024px) */}
+        <RecentProjectsMobileSlider />
+
+        {/* Desktop Asymmetric 4-Card Portfolio Showcase (>= 1024px) */}
         <RecentProjectsGrid />
       </div>
 

@@ -39,7 +39,7 @@ export const CtaContent: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="relative w-full aspect-[630/337] rounded-[16px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 group"
+        className="relative w-full aspect-[630/337] rounded-[16px] overflow-hidden border border-white/10 group"
       >
         <Image
           src={ctaConsultationImg}

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
-import { PageContent } from "../website-development/PageContent";
+import { PageContent } from "./PageContent";
 import { BaseLayout } from "@/app/layouts/BaseLayout";
 
 interface WebDevelopmentServicePageProps {

@@ -5,13 +5,15 @@ import { CASE_STUDIES } from "./data";
 import { CaseStudyHeader } from "./components/CaseStudyHeader";
 import { CaseStudyDetails } from "./components/CaseStudyDetails";
 import { CaseStudyImage } from "./components/CaseStudyImage";
+import { CaseStudyMobileSlider } from "./components/CaseStudyMobileSlider";
 
 /**
  * CaseStudySection Component
  * 
  * "Real Results That Created Impact"
  * Positioned directly after the Compare Table section on the Web Design page.
- * Features 3 static case studies navigable with circular prev/next buttons.
+ * - Desktop: 2-column showcase (Left details card + Right photo)
+ * - Mobile: Dedicated touch-enabled card slider with dots matching Figma
  */
 
 export const CaseStudySection: React.FC = () => {
@@ -28,7 +30,7 @@ export const CaseStudySection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-28 bg-[#FFFFFF] overflow-hidden">
+    <section className="relative py-14 md:py-24 lg:py-28 bg-[#FFFFFF] overflow-hidden">
       {/* Soft Ambient Background Glows */}
       <div
         className="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-blue-50/60 blur-[130px] pointer-events-none"
@@ -43,8 +45,8 @@ export const CaseStudySection: React.FC = () => {
         {/* Section Heading & CTA */}
         <CaseStudyHeader />
 
-        {/* 2-Column Showcase (Left Details Card + Right Photo) */}
-        <div className="flex flex-col lg:flex-row items-stretch gap-6 lg:gap-8">
+        {/* Desktop 2-Column Showcase (Left Details Card + Right Photo) */}
+        <div className="hidden lg:flex items-stretch gap-6 lg:gap-8">
           {/* Left Details Card */}
           <CaseStudyDetails
             caseStudy={activeCaseStudy}
@@ -56,6 +58,11 @@ export const CaseStudySection: React.FC = () => {
 
           {/* Right Showcase Image */}
           <CaseStudyImage imageAlt={activeCaseStudy.imageAlt} />
+        </div>
+
+        {/* Mobile Responsive Dot Slider */}
+        <div className="block lg:hidden">
+          <CaseStudyMobileSlider />
         </div>
       </div>
     </section>

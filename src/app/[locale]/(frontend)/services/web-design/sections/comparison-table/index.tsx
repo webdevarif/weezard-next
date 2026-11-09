@@ -1,19 +1,31 @@
 "use client";
 
 import React from "react";
+import { ComparisonRowData } from "./data";
 import { ComparisonTableHeader } from "./components/ComparisonTableHeader";
 import { ComparisonTableDesktop } from "./components/ComparisonTableDesktop";
 import { ComparisonTableMobile } from "./components/ComparisonTableMobile";
 
+export interface ComparisonTableSectionProps {
+  header?: {
+    title?: string;
+    subtitle?: string;
+  };
+  rows?: ComparisonRowData[];
+}
+
 /**
  * ComparisonTableSection Component
  * 
- * "What You Get with Weezard's Web Design Services"
- * Displayed directly after the Pricing section on the Web Design service page.
- * Includes desktop 4-column comparison matrix and mobile responsive view.
+ * Reusable & Dynamic Comparison Matrix:
+ * - Desktop 4-column matrix
+ * - Mobile responsive 4-card sequence
+ * - Supports custom header and rows while maintaining 100% Figma fidelity
  */
-
-export const ComparisonTableSection: React.FC = () => {
+export const ComparisonTableSection: React.FC<ComparisonTableSectionProps> = ({
+  header,
+  rows,
+}) => {
   return (
     <section className="relative py-16 md:py-24 lg:py-28 overflow-hidden bg-[#FBFDFF]">
       {/* Background Ambient Glows matching Figma canvas */}
@@ -32,13 +44,16 @@ export const ComparisonTableSection: React.FC = () => {
 
       <div className="relative z-10 container mx-auto px-4 max-w-[1400px]">
         {/* Section Heading & Subtitle */}
-        <ComparisonTableHeader />
+        <ComparisonTableHeader
+          title={header?.title}
+          subtitle={header?.subtitle}
+        />
 
         {/* Desktop 4-Column Table */}
-        <ComparisonTableDesktop />
+        <ComparisonTableDesktop rows={rows} />
 
         {/* Mobile Segmented Cards */}
-        <ComparisonTableMobile />
+        <ComparisonTableMobile rows={rows} />
       </div>
     </section>
   );

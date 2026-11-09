@@ -30,10 +30,12 @@ import { Link } from '@/lib/i18n/routing';
 
 const Faq = ({
     data,
-    shapes
+    shapes,
+    className,
 }: {
     shapes?: React.ReactNode
     data: FaqDataProps
+    className?: string
 }) => {
     // Track selected category
     const [activeCategoryIndex, setActiveCategoryIndex] = useState(0) 
@@ -41,7 +43,7 @@ const Faq = ({
     const activeCategory = data.categories[activeCategoryIndex] || data.categories[0];
     
     return (
-    <section className='py-[60px] lg:py-[100px] relative space-y-[20px] lg:space-y-[50px] z-[1] overflow-hidden'>
+    <section className={cn('pt-[60px] pb-[60px] lg:pt-[100px] lg:pb-[100px] relative space-y-[20px] lg:space-y-[50px] z-[1] overflow-hidden', className)}>
         <div className={cn('container', data.variant === 'center' && 'max-w-[920px]')}>
             <div className={`${data.variant === 'center' || data.variant === 'double' ? 'space-y-[32px] lg:space-y-[40px]' : 'grid grid-cols-1 gap-[20px] lg:grid-cols-[390px_1fr] lg:gap-[60px]'}`}>
                 <div className="space-y-[16px]">
@@ -151,8 +153,8 @@ const Faq = ({
                     </Accordion>
                     </div>
                     {data.question && (
-                        <div className='bg-[#EEF2F9] -mx-[15px] lg:mx-0 rounded-[16px] py-[40px] lg:py-[45px] px-[20px] sm:px-[35px] lg:px-[45px] text-center lg:text-left flex flex-col-reverse lg:flex-row justify-between items-center gap-[30px]'>
-                            <div>
+                        <div className='bg-[#EEF2F9] -mx-[15px] lg:mx-0 rounded-[16px] pt-[40px] pb-0 sm:pb-[40px] lg:py-[45px] px-[20px] sm:px-[35px] lg:px-[45px] text-center lg:text-left flex flex-col-reverse lg:flex-row justify-between items-center gap-[20px] lg:gap-[30px]'>
+                            <div className="pb-[35px] sm:pb-0">
                                 {data.question.title && (
                                     <h4 className='text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-navy font-dm-sans mb-[18px] lg:mb-[32px] tracking-[-0.02em]'>
                                         {data.question.title}
@@ -167,9 +169,9 @@ const Faq = ({
                                     </Button>
                                 )}
                             </div>
-                            <div>
+                            <div className="flex justify-center items-end self-center lg:self-auto">
                                 <Image 
-                                    className='max-w-[200px] sm:max-w-[240px] lg:max-w-[280px] h-auto' 
+                                    className='max-w-[200px] sm:max-w-[240px] lg:max-w-[280px] h-auto block' 
                                     src={QuestionBanner.src} 
                                     width={QuestionBanner.width} 
                                     height={QuestionBanner.height} 

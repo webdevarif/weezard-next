@@ -15,6 +15,7 @@
 import React from "react";
 import StepProcessHeader from "./components/StepProcessHeader";
 import StepProcessSlider from "./components/StepProcessSlider";
+import StepProcessBottomCta from "./components/StepProcessBottomCta";
 
 export const StepProcessSection: React.FC = () => {
   return (
@@ -25,6 +26,9 @@ export const StepProcessSection: React.FC = () => {
 
         {/* 10-Step Process Slider with Timeline & Progress Track */}
         <StepProcessSlider />
+
+        {/* Mobile-only full-width bottom CTA */}
+        <StepProcessBottomCta />
       </div>
     </section>
   );

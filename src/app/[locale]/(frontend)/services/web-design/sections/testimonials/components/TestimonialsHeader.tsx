@@ -8,21 +8,22 @@ import { ExternalArrowIcon } from "./TestimonialIcons";
  * Section header:
  * - Title: "Listen Directly from Our Past Clients"
  * - Pill CTA: "See More Reviews ↗" with 1.5px solid #092856 border & DM Sans 16px font
+ * - On mobile (< lg), the CTA is hidden here and placed as a full-width button at the bottom of the section
  */
 
 export const TestimonialsHeader: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
+    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-12 lg:mb-16">
       {/* Title */}
       <div className="max-w-[620px]">
-        <h2 className="text-[#092856] font-dm-sans font-bold text-3xl md:text-4xl lg:text-[42px] leading-tight lg:leading-[52px] tracking-tight">
+        <h2 className="text-[#092856] font-dm-sans font-bold text-3xl sm:text-4xl lg:text-[42px] leading-tight lg:leading-[52px] tracking-tight">
           Listen Directly from
           <br className="hidden sm:inline" /> Our Past Clients
         </h2>
       </div>
 
-      {/* "See More Reviews ↗" CTA Button */}
-      <div className="flex-shrink-0">
+      {/* "See More Reviews ↗" CTA Button (Desktop only, mobile renders full-width at bottom) */}
+      <div className="hidden lg:block flex-shrink-0">
         <Link
           href="#reviews"
           className="inline-flex items-center justify-center gap-2.5 h-[56px] px-8 rounded-full text-[#092856] font-dm-sans font-bold text-[16px] transition-all duration-300 hover:bg-[#092856] hover:text-white group flex-shrink-0"

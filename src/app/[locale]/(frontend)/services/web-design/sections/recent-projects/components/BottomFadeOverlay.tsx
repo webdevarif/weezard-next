@@ -13,7 +13,7 @@ export const BottomFadeOverlay: React.FC = () => {
   return (
     <div
       aria-hidden="true"
-      className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 lg:h-48 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none z-10"
+      className="hidden lg:block absolute bottom-0 left-0 right-0 h-32 sm:h-40 lg:h-48 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none z-10"
     />
   );
 };
