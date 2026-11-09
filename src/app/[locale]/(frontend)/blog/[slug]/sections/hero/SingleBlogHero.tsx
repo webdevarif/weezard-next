@@ -49,39 +49,45 @@ export default function SingleBlogHero({
         </div>
 
         {/* Title */}
-        <h1 className="text-[28px] sm:text-[38px] md:text-[46px] lg:text-[52px] font-bold text-white font-dm-sans leading-[1.2] max-w-[950px] mt-6 mb-9">
+        <h1 className="text-[52px] font-bold text-white font-dm-sans leading-[1.18] max-w-[950px] mt-6 mb-8 sm:mb-9">
           {title}
         </h1>
 
-        {/* Frosted Glass Meta Box */}
-        <div className="w-full max-w-[580px] rounded-[16px] bg-white/[0.08] backdrop-blur-md border border-white/20 py-4 px-3 sm:px-6 shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
-          <div className="grid grid-cols-3 divide-x divide-white/20 items-center">
+        {/* Metadata Container: Clean on mobile, frosted 20% white box (774px x 115px) on desktop with 60px solid white dividers */}
+        <div className="w-full max-w-[774px] sm:h-[115px] rounded-[16px] bg-transparent sm:bg-white/20 sm:backdrop-blur-[54px] py-2 sm:py-0 px-1 sm:px-8 flex items-center justify-center">
+          <div className="w-full flex items-center justify-between">
             {/* Publish Date */}
-            <div className="px-2 sm:px-4 text-center">
-              <span className="block text-[11px] sm:text-[12px] text-white/70 font-manrope uppercase tracking-wider mb-0.5">
+            <div className="flex-1 text-left">
+              <span className="block text-[12px] sm:text-[14px] text-white/90 font-manrope mb-1">
                 Publish Date
               </span>
-              <span className="block text-[13px] sm:text-[15px] font-semibold text-white font-manrope">
+              <span className="block text-[13px] sm:text-[18px] font-bold text-white font-dm-sans whitespace-nowrap">
                 {date}
               </span>
             </div>
 
-            {/* Author */}
-            <div className="px-2 sm:px-4 text-center">
-              <span className="block text-[11px] sm:text-[12px] text-white/70 font-manrope uppercase tracking-wider mb-0.5">
+            {/* Desktop Divider 1 (Exact SVG M229 31V91: 60px solid white line) */}
+            <div className="hidden sm:block w-[1px] h-[60px] bg-white mx-6 shrink-0" />
+
+            {/* Author (Allocated more space) */}
+            <div className="flex-[1.4] sm:flex-[1.5] px-2 sm:px-0 text-left">
+              <span className="block text-[12px] sm:text-[14px] text-white/90 font-manrope mb-1">
                 by
               </span>
-              <span className="block text-[13px] sm:text-[15px] font-semibold text-white font-manrope truncate">
+              <span className="block text-[13px] sm:text-[18px] font-bold text-white font-dm-sans whitespace-normal sm:whitespace-nowrap">
                 {author}
               </span>
             </div>
 
+            {/* Desktop Divider 2 (Exact SVG M545 31V91: 60px solid white line) */}
+            <div className="hidden sm:block w-[1px] h-[60px] bg-white mx-6 shrink-0" />
+
             {/* Comments */}
-            <div className="px-2 sm:px-4 text-center">
-              <span className="block text-[11px] sm:text-[12px] text-white/70 font-manrope uppercase tracking-wider mb-0.5">
+            <div className="flex-1 text-left">
+              <span className="block text-[12px] sm:text-[14px] text-white/90 font-manrope mb-1">
                 Comments
               </span>
-              <span className="block text-[13px] sm:text-[15px] font-semibold text-white font-manrope">
+              <span className="block text-[13px] sm:text-[18px] font-bold text-white font-dm-sans whitespace-nowrap">
                 {commentsCount}
               </span>
             </div>

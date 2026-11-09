@@ -1,5 +1,5 @@
 import React from "react";
-import { COMPARISON_ROWS, CellValue } from "../data";
+import { COMPARISON_ROWS, ComparisonRowData, CellValue } from "../data";
 import {
   LightningIcon,
   CrossIcon,
@@ -9,6 +9,10 @@ import {
   WeezardLogo,
 } from "./ComparisonTableIcons";
 
+export interface ComparisonTableDesktopProps {
+  rows?: ComparisonRowData[];
+}
+
 /**
  * ComparisonTableDesktop Component
  * 
@@ -16,12 +20,14 @@ import {
  * - 1320px wide container matching Figma canvas
  * - Rounded base table with royal blue header (#386BF6 / #305CD8)
  * - Distinct, visible horizontal and vertical interior grid lines (#CAD6F4)
- * - 10 precisely aligned rows (92px height each)
+ * - Precisely aligned rows (92px height each)
  * - Elevated Weezard card column (-top-[27px]) with glassmorphism,
  *   brand gradient, golden checkmarks (#EAD53F), and official logo.
  */
 
-export const ComparisonTableDesktop: React.FC = () => {
+export const ComparisonTableDesktop: React.FC<ComparisonTableDesktopProps> = ({
+  rows = COMPARISON_ROWS,
+}) => {
   // Render status icon and text for Freelancers & Other Agencies
   const renderCellContent = (cell: CellValue) => {
     return (
@@ -85,15 +91,15 @@ export const ComparisonTableDesktop: React.FC = () => {
           <div aria-hidden="true" />
         </div>
 
-        {/* Base Table 10 Data Rows with distinct vertical and horizontal divider lines */}
+        {/* Base Table Data Rows with distinct vertical and horizontal divider lines */}
         <div>
-          {COMPARISON_ROWS.map((row, index) => (
+          {rows.map((row, index) => (
             <div
               key={index}
               className="grid grid-cols-[28%_22.5%_22.5%_27%] h-[92px] items-stretch transition-colors hover:bg-[#E4EDFB]"
               style={{
                 borderBottom:
-                  index < COMPARISON_ROWS.length - 1
+                  index < rows.length - 1
                     ? "1px solid #CAD6F4"
                     : "none",
               }}
@@ -160,15 +166,15 @@ export const ComparisonTableDesktop: React.FC = () => {
           </div>
         </div>
 
-        {/* Weezard 10 Data Rows (Height: 92px each) with visible divider lines */}
+        {/* Weezard Data Rows (Height: 92px each) with visible divider lines */}
         <div className="flex-1 flex flex-col">
-          {COMPARISON_ROWS.map((row, index) => (
+          {rows.map((row, index) => (
             <div
               key={index}
               className="h-[92px] flex items-center gap-3 px-6 xl:px-8 transition-colors hover:bg-white/10"
               style={{
                 borderBottom:
-                  index < COMPARISON_ROWS.length - 1
+                  index < rows.length - 1
                     ? "1px solid rgba(255, 255, 255, 0.2)"
                     : "none",
               }}

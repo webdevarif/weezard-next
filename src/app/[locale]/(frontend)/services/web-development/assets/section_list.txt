@@ -1,0 +1,9 @@
+১	Hero Section	<WebDevelopmentHero />	sections/hero/index.tsx
+২	Why Choose Our Website Development Service?	<FeaturesSection />	sections/features/index.tsx	
+৩	Our Development Process	<StepProcessSection />	sections/step-process/index.tsx	
+৪	Explore Our Transparent and Affordable Pricing	<Pricing />	@/app/[locale]/components/sections/Pricing	
+৫	Case Studies & Impact	<CaseStudiesSection />	sections/case-studies/index.tsx	
+৬	Listen Directly from Our Past Clients	<TestimonialsSection />	sections/testimonials/index.tsx	
+৭	Ready to Launch a Website That Works for Your Business?	<CtaBannerSection />	sections/cta-banner/index.tsx	
+৮	Frequently Asked Questions	<WebDevFaqSection />	sections/faq/index.tsx	
+৯	Global Footer	<Footer />	src/app/layouts/BaseLayout.tsx	

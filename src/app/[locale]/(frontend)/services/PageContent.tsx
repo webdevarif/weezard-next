@@ -183,7 +183,7 @@ export function PageContent() {
       </section>
 
       {/* 6. Frequently Asked Questions */}
-      <Faq data={data.faqs} />
+      <Faq data={data.faqs} className='pb-0 lg:pb-[100px]' />
     </div>
   );
 }
