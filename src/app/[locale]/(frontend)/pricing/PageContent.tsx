@@ -6,13 +6,10 @@ import Pricing from "../../components/sections/Pricing";
 import Faq from "../../components/sections/Faq";
 
 /**
- * About Us Page Content
+ * Pricing Page Content
  */
 export function PageContent() {
-  
-
   const data = {
-
     pricing: {
       header: {
         title: "Choose the Plan That Fits Your Growth",
@@ -50,7 +47,7 @@ export function PageContent() {
             },
             actionButton: {
                 label: "Talk to us",
-                href: "#"
+                href: "/contact-us"
             }
         },
         {
@@ -58,7 +55,7 @@ export function PageContent() {
             icon: "",
             title: "Growth",
             info: "Ideal for growing businesses looking to get recognized as a brand and gain unique presence",
-            price: "$150",
+            price: "$150+",
             features: {
                 checkColor: "#EAD53F",
                 secondaryColor: "#092856",
@@ -90,15 +87,15 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Talk to us",
-                href: "#"
+                label: "Get Growth Package",
+                href: "/contact-us"
             }
         },
         {
             icon: "",
             title: "Scale",
             info: "Designed for businesses that need a complete digital presence and ongoing IT support",
-            price: "$300",
+            price: "$300+",
             features: {
                 checkColor: "#A93CFF",
                 secondaryColor: "#FAFAFA",
@@ -127,11 +124,16 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Talk to us",
-                href: "#"
+                label: "Claim This Package",
+                href: "/contact-us"
             }
         },
-      ]
+      ],
+      footer: {
+        title: `Create a custom price quote with <strong>Weezard</strong>`,
+        button_label: "Get Your Custom Quote",
+        button_url: "/contact-us"
+      }
     },
     faqs: {
       title: "Need Help? We’ve Got You Covered!",
@@ -171,7 +173,7 @@ export function PageContent() {
       },
       description: "Choosing the right web design service can make all the difference in how your business is perceived online. At Weezard, we combine thoughtful design, reliable development, and marketing strategy to give small businesses a powerful digital presence. With our transparent pricing, dedicated support, and scalable solutions, we’re here to help you grow. No guesswork, no hidden fees. Whether you're starting from scratch or looking to upgrade, our website packages and affordable SEO packages for small businesses are designed to give you results without breaking the bank."
     },
-  }
+  };
 
   return (
     <>
@@ -212,7 +214,6 @@ export function PageContent() {
         </motion.section>
       </motion.div>
 
-
       <Pricing data={data.pricing} />
       
       <Faq data={data.faqs}
@@ -227,4 +228,3 @@ export function PageContent() {
     </>
   );
 }
-

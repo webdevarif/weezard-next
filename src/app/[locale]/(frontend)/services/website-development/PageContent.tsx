@@ -50,7 +50,7 @@ export function PageContent() {
             },
             actionButton: {
                 label: "Talk to us",
-                href: "#"
+                href: "/contact-us"
             }
         },
         {
@@ -58,7 +58,7 @@ export function PageContent() {
             icon: "",
             title: "Growth",
             info: "Ideal for growing businesses looking to get recognized as a brand and gain unique presence",
-            price: "$150",
+            price: "$150+",
             features: {
                 checkColor: "#EAD53F",
                 secondaryColor: "#092856",
@@ -90,15 +90,15 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Talk to us",
-                href: "#"
+                label: "Get Growth Package",
+                href: "/contact-us"
             }
         },
         {
             icon: "",
             title: "Scale",
             info: "Designed for businesses that need a complete digital presence and ongoing IT support",
-            price: "$300",
+            price: "$300+",
             features: {
                 checkColor: "#A93CFF",
                 secondaryColor: "#FAFAFA",
@@ -127,8 +127,8 @@ export function PageContent() {
                 ]
             },
             actionButton: {
-                label: "Talk to us",
-                href: "#"
+                label: "Claim This Package",
+                href: "/contact-us"
             }
         },
       ],

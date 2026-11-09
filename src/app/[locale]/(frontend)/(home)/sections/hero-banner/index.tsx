@@ -40,10 +40,10 @@ const HeroBanner = () => {
                         <Image src={Stars} className='max-w-full' alt='Stars' />
                         <span>(4,5/5) Trusted by 500+ Businesses</span>
                     </motion.div>
-                    <motion.h1 variants={fadeInUp} className="text-[48px] lg:text-[72px] leading-[1.2] mb-[24px] text-navy font-bold font-dm-sans -tracking-[0.03em]">
+                    <motion.h1 variants={fadeInUp} className="text-[34px] sm:text-[46px] lg:text-[72px] leading-[1.2] mb-[20px] sm:mb-[24px] text-navy font-bold font-dm-sans -tracking-[0.03em]">
                         Easy <span className="text-blue">IT Services</span> for Small Businesses
                     </motion.h1>
-                    <motion.div variants={fadeInUp} className="text-heading-2 font-normal text-secondary mb-[35px]">
+                    <motion.div variants={fadeInUp} className="text-body-base sm:text-heading-2 font-normal text-secondary mb-[28px] sm:mb-[35px]">
                         <p>Looking for white label or fully managed IT services for small businesses? Welcome to Weezard! We make it easy to scale your offerings with expert design, web development, digital marketing, and more. Grow your business and transform it to a brand</p>
                     </motion.div>
                     <motion.div variants={fadeInUp} className="flex gap-[20px] flex-wrap items-center">
@@ -63,91 +63,153 @@ const HeroBanner = () => {
 
 
 
-                    {/* MOBILE */}
-                    <div className="relative flex md:hidden justify-center pt-[50px]">
-                        {/* ITEM 1 */}
-                        <motion.div variants={fadeInUp} className='font-semibold text-[8px] leading-[1.3] text-secondary uppercase bg-white bg-[linear-gradient(301.37deg,#305CD8_-71.49%,rgba(48,92,216,0)_42.23%)] text-body-base z-[1] rounded-[8px] grid grid-cols-[30px_1fr] gap-[7px] py-[10px] px-[8px] w-[170px] items-center absolute top-[18%] end-[calc(50%+30px)]'>
-                            <Image src={YearsExperienceIcon} alt='Years of Experience'/>
-                            <div>
-                                <div className="text-[18px] leading-[1.5] text-left font-bold text-navy font-dm-sans">95%</div>
-                                <div>Client Satisfaction</div>
+                    {/* MOBILE - 100% Pixel-Perfect Match to Figma Design */}
+                    <div className="relative flex md:hidden flex-col items-center pt-[24px] pb-[10px]">
+                        {/* Interactive Metric Tree Container — 90px center trunk gap, matches Figma */}
+                        <div className="relative w-full max-w-[370px] sm:max-w-[380px] h-[335px] sm:h-[345px] mx-auto select-none">
+
+                            {/* ── Central Tree SVG ──
+                                width=90: 45px each side from trunk center (wider Figma gap)
+                                Gradients: bgl (left branch), bgr (right branch), tgv (trunk)
+                                strokeWidth=1.5: matches Figma thin line weight
+                            */}
+                            <svg
+                                className="absolute left-1/2 -translate-x-1/2 top-0 pointer-events-none"
+                                width="90"
+                                height="260"
+                                viewBox="0 0 90 260"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <defs>
+                                    {/* Left Branch: card-blue #4E72E0 → soft lavender #9FABF5 */}
+                                    <linearGradient id="bgl" x1="0" y1="0" x2="45" y2="0" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%"   stopColor="#4E72E0" stopOpacity="1"/>
+                                        <stop offset="55%"  stopColor="#7A93EE" stopOpacity="0.9"/>
+                                        <stop offset="100%" stopColor="#9FABF5" stopOpacity="0.75"/>
+                                    </linearGradient>
+
+                                    {/* Right Branch: card-blue #4E72E0 → soft lavender #9FABF5 (mirrored) */}
+                                    <linearGradient id="bgr" x1="90" y1="0" x2="45" y2="0" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%"   stopColor="#4E72E0" stopOpacity="1"/>
+                                        <stop offset="55%"  stopColor="#7A93EE" stopOpacity="0.9"/>
+                                        <stop offset="100%" stopColor="#9FABF5" stopOpacity="0.75"/>
+                                    </linearGradient>
+
+                                    {/* Trunk: top royal-blue → soft purple at badge bottom */}
+                                    <linearGradient id="tgv" x1="45" y1="42" x2="45" y2="258" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%"   stopColor="#4E72E0" stopOpacity="1"/>
+                                        <stop offset="40%"  stopColor="#6A87EB" stopOpacity="0.9"/>
+                                        <stop offset="72%"  stopColor="#8FA4F4" stopOpacity="0.8"/>
+                                        <stop offset="100%" stopColor="#BAABF7" stopOpacity="0.55"/>
+                                    </linearGradient>
+                                </defs>
+
+                                {/* Central vertical trunk — connects all 3 rows down to badge */}
+                                <line x1="45" y1="42" x2="45" y2="258" stroke="url(#tgv)" strokeWidth="1.5" strokeLinecap="round"/>
+
+                                {/* Row 1 curved branches (y=20) — 14px smooth corner radius */}
+                                <path d="M0 20H23C35 20 45 32 45 42"  stroke="url(#bgl)" strokeWidth="1.5" fill="none"/>
+                                <path d="M90 20H67C55 20 45 32 45 42" stroke="url(#bgr)" strokeWidth="1.5" fill="none"/>
+
+                                {/* Row 2 curved branches (y=114) */}
+                                <path d="M0 114H23C35 114 45 126 45 136"  stroke="url(#bgl)" strokeWidth="1.5" fill="none"/>
+                                <path d="M90 114H67C55 114 45 126 45 136" stroke="url(#bgr)" strokeWidth="1.5" fill="none"/>
+
+                                {/* Row 3 curved branches (y=197) */}
+                                <path d="M0 197H23C35 197 45 209 45 219"  stroke="url(#bgl)" strokeWidth="1.5" fill="none"/>
+                                <path d="M90 197H67C55 197 45 209 45 219" stroke="url(#bgr)" strokeWidth="1.5" fill="none"/>
+                            </svg>
+
+                            {/* ── ROW 1 LEFT — 95% Client Satisfaction ──
+                                top-[0px], card offset 45px left of trunk center
+                                icon=32px | number=21px bold | label=7px uppercase
+                            */}
+                            <motion.div
+                                variants={fadeInUp}
+                                className="z-[1] rounded-[8px] shadow-[0px_8px_20px_rgba(48,92,216,0.08)] border border-solid border-blue/15 bg-white bg-[linear-gradient(301.37deg,#305CD8_-71.49%,rgba(48,92,216,0)_42.23%)] grid grid-cols-[32px_1fr] gap-[6px] py-[8px] px-[10px] w-[148px] items-center absolute top-[0px] end-[calc(50%+45px)]"
+                            >
+                                <Image src={YearsExperienceIcon} alt="Client Satisfaction" className="w-[32px] h-auto"/>
+                                <div>
+                                    <div className="text-[21px] leading-[1.15] text-left font-bold text-navy font-dm-sans">95%</div>
+                                    <div className="text-[7px] font-semibold tracking-wide text-[#4A5568] uppercase leading-[1.3]">Client Satisfaction</div>
+                                </div>
+                            </motion.div>
+
+                            {/* ── ROW 1 RIGHT — 12+ Year of Experience ── */}
+                            <motion.div
+                                variants={fadeInUp}
+                                className="z-[1] rounded-[8px] shadow-[0px_8px_20px_rgba(48,92,216,0.08)] border border-solid border-blue/15 bg-white bg-[linear-gradient(63.24deg,#305CD8_-101.6%,rgba(48,92,216,0)_46.43%)] grid grid-cols-[32px_1fr] gap-[6px] py-[8px] px-[10px] w-[148px] items-center absolute top-[0px] start-[calc(50%+45px)]"
+                            >
+                                <Image src={YearsExperienceMIcon} alt="Years of Experience" className="w-[32px] h-auto"/>
+                                <div>
+                                    <div className="text-[21px] leading-[1.15] text-left font-bold text-navy font-dm-sans">12+</div>
+                                    <div className="text-[7px] font-semibold tracking-wide text-[#4A5568] uppercase leading-[1.3]">Year of Experience</div>
+                                </div>
+                            </motion.div>
+
+                            {/* ── ROW 2 LEFT — 700+ Successful Project ──
+                                top-[95px], biggest cards (w-[158px], icon=36px, number=22px)
+                            */}
+                            <motion.div
+                                variants={fadeInUp}
+                                className="z-[1] rounded-[8px] shadow-[0px_8px_20px_rgba(48,92,216,0.08)] border border-solid border-blue/15 bg-white bg-[linear-gradient(301.37deg,#305CD8_-71.49%,rgba(48,92,216,0)_42.23%)] grid grid-cols-[36px_1fr] gap-[6px] py-[8px] px-[10px] w-[158px] items-center absolute top-[95px] end-[calc(50%+45px)]"
+                            >
+                                <Image src={SuccessProjectMIcon} alt="Successful Project" className="w-[36px] h-auto"/>
+                                <div>
+                                    <div className="text-[22px] leading-[1.15] text-left font-bold text-navy font-dm-sans">700+</div>
+                                    <div className="text-[7px] font-semibold tracking-wide text-[#4A5568] uppercase leading-[1.3]">Successful Project</div>
+                                </div>
+                            </motion.div>
+
+                            {/* ── ROW 2 RIGHT — 70+ Professional Team ── */}
+                            <motion.div
+                                variants={fadeInUp}
+                                className="z-[1] rounded-[8px] shadow-[0px_8px_20px_rgba(48,92,216,0.08)] border border-solid border-blue/15 bg-white bg-[linear-gradient(75.84deg,#305CD8_-106.79%,rgba(48,92,216,0)_37.48%)] grid grid-cols-[36px_1fr] gap-[6px] py-[8px] px-[10px] w-[158px] items-center absolute top-[95px] start-[calc(50%+45px)]"
+                            >
+                                <Image src={ProfessionalTeamMIcon} alt="Professional Team" className="w-[36px] h-auto"/>
+                                <div>
+                                    <div className="text-[22px] leading-[1.15] text-left font-bold text-navy font-dm-sans">70+</div>
+                                    <div className="text-[7px] font-semibold tracking-wide text-[#4A5568] uppercase leading-[1.3]">Professional Team</div>
+                                </div>
+                            </motion.div>
+
+                            {/* ── ROW 3 LEFT — Business Goal ──
+                                top-[178px], narrower card (icon + label only, no large number)
+                                w-[132px], icon=28px
+                            */}
+                            <motion.div
+                                variants={fadeInUp}
+                                className="z-[1] rounded-[8px] shadow-[0px_8px_20px_rgba(48,92,216,0.08)] border border-solid border-blue/15 bg-white bg-[linear-gradient(301.37deg,#305CD8_-71.49%,rgba(48,92,216,0)_42.23%)] grid grid-cols-[28px_1fr] gap-[6px] py-[9px] px-[10px] w-[132px] items-center absolute top-[178px] end-[calc(50%+45px)]"
+                            >
+                                <Image src={BGoalMIcon} alt="Business Goal" className="w-[28px] h-auto"/>
+                                <div className="text-[8px] font-semibold tracking-wide text-[#4A5568] uppercase leading-[1.3]">Business Goal</div>
+                            </motion.div>
+
+                            {/* ── ROW 3 RIGHT — Growth Your Business ── */}
+                            <motion.div
+                                variants={fadeInUp}
+                                className="z-[1] rounded-[8px] shadow-[0px_8px_20px_rgba(48,92,216,0.08)] border border-solid border-blue/15 bg-white bg-[linear-gradient(74.29deg,#305CD8_-42.96%,rgba(48,92,216,0)_31.74%)] grid grid-cols-[28px_1fr] gap-[6px] py-[9px] px-[10px] w-[132px] items-center absolute top-[178px] start-[calc(50%+45px)]"
+                            >
+                                <Image src={GYourBusinessMIcon} alt="Growth your Business" className="w-[28px] h-auto"/>
+                                <div className="text-[8px] font-semibold tracking-wide text-[#4A5568] uppercase leading-[1.3]">Growth Your Business</div>
+                            </motion.div>
+
+                            {/* ── Awards Badge ──
+                                top-[258px] — trunk docks into badge border at y=258
+                                w-[252px] perfectly centered via left-1/2 -translate-x-1/2
+                            */}
+                            <div className="absolute top-[258px] left-1/2 -translate-x-1/2 z-[2]">
+                                <motion.div
+                                    variants={fadeInUp}
+                                    className="w-[252px] items-center inline-flex justify-between gap-[8px] bg-white shadow-[0px_8px_25px_rgba(48,92,216,0.10)] border border-solid border-blue/15 rounded-[16px] py-[7px] px-[12px] whitespace-nowrap"
+                                >
+                                    <Image src={AwardsBanner} className="w-[158px] h-auto shrink-0" alt="10+ Awards"/>
+                                    <div className="font-bold leading-[1.2] text-[13px] text-navy font-dm-sans shrink-0">10+<br/>Award</div>
+                                </motion.div>
                             </div>
-                        </motion.div>
-                        {/* ITEM 2 */}
-                        <motion.div variants={fadeInUp} className='font-semibold text-[8px] leading-[1.3] text-secondary uppercase bg-white bg-[linear-gradient(301.37deg,#305CD8_-71.49%,rgba(48,92,216,0)_42.23%)] text-body-base z-[1] rounded-[8px] grid grid-cols-[40px_1fr] gap-[7px] py-[10px] px-[8px] w-[190px] items-center absolute top-[50%] end-[calc(50%+20px)]'>
-                            <Image src={SuccessProjectMIcon} alt='Years of Experience'/>
-                            <div>
-                                <div className="text-[18px] leading-[1.5] text-left font-bold text-navy font-dm-sans">700+</div>
-                                <div>successful project</div>
-                            </div>
-                        </motion.div>
-                        {/* ITEM 3 */}
-                        <motion.div variants={fadeInUp} className='font-semibold text-[11px] leading-[1.3] text-secondary uppercase bg-white bg-[linear-gradient(301.37deg,#305CD8_-71.49%,rgba(48,92,216,0)_42.23%)] text-body-base z-[1] rounded-[8px] grid grid-cols-[40px_1fr] gap-[7px] py-[10px] px-[8px] w-[170px] items-center absolute top-[80%] end-[calc(50%+30px)]'>
-                            <Image src={BGoalMIcon} alt='Business Goal'/>
-                            <div>Business goal</div>
-                        </motion.div>
-                        <svg className='translate-y-[30px]' width="119" height="231" viewBox="0 0 119 231" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 1H39.5C50.5457 1 59.5 9.95431 59.5 21V223.5" stroke="url(#paint0_linear_69773_33146)" strokeWidth="2"/>
-                            <path d="M23.5 91H39.5C50.5457 91 59.5 99.9543 59.5 111V231" stroke="url(#paint1_linear_69773_33146)" strokeWidth="2"/>
-                            <path d="M18.5 167H39.5C50.5457 167 59.5 175.954 59.5 187V230.5" stroke="url(#paint2_linear_69773_33146)" strokeWidth="2"/>
-                            <path d="M102.5 91H79.5C68.4543 91 59.5 99.9543 59.5 111V231" stroke="url(#paint3_linear_69773_33146)" strokeWidth="2"/>
-                            <path d="M100.5 167H79.5005C68.4548 167 59.5005 175.954 59.5005 187V231" stroke="url(#paint4_linear_69773_33146)" strokeWidth="2"/>
-                            <path d="M119 1H79.5C68.4543 1 59.5 9.95431 59.5 21V230.5" stroke="url(#paint5_linear_69773_33146)" strokeWidth="2"/>
-                            <defs>
-                            <linearGradient id="paint0_linear_69773_33146" x1="59.5" y1="190" x2="-51.2986" y2="54.0849" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#C7B0FE" stopOpacity="0"/>
-                            <stop offset="1" stopColor="#305CD8"/>
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_69773_33146" x1="62.5" y1="195.5" x2="-16.3355" y2="130.905" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#C7B0FE" stopOpacity="0"/>
-                            <stop offset="1" stopColor="#305CD8"/>
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_69773_33146" x1="62.5" y1="231" x2="-0.0163058" y2="198.645" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#C7B0FE" stopOpacity="0"/>
-                            <stop offset="1" stopColor="#305CD8"/>
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_69773_33146" x1="59.5" y1="209.5" x2="141.589" y2="132.552" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#C7B0FE" stopOpacity="0"/>
-                            <stop offset="1" stopColor="#305CD8"/>
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_69773_33146" x1="56.5" y1="242.5" x2="123.65" y2="200.99" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#C7B0FE" stopOpacity="0"/>
-                            <stop offset="1" stopColor="#305CD8"/>
-                            </linearGradient>
-                            <linearGradient id="paint5_linear_69773_33146" x1="57.5" y1="208.5" x2="177.043" y2="61.511" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#C7B0FE" stopOpacity="0"/>
-                            <stop offset="1" stopColor="#305CD8"/>
-                            </linearGradient>
-                            </defs>
-                        </svg>
-                        {/* ITEM 4 */}
-                        <motion.div variants={fadeInUp} className='font-semibold text-[8px] leading-[1.3] text-secondary uppercase bg-white bg-[linear-gradient(63.24deg,#305CD8_-101.6%,rgba(48,92,216,0)_46.43%)] text-body-base z-[1] rounded-[8px] grid grid-cols-[30px_1fr] gap-[7px] py-[10px] px-[8px] w-[170px] items-center absolute top-[18%] start-[calc(50%+30px)]'>
-                            <Image src={YearsExperienceMIcon} alt='Years of Experience'/>
-                            <div>
-                                <div className="text-[18px] leading-[1.5] text-left font-bold text-navy font-dm-sans">12+</div>
-                                <div>Year of Experience</div>
-                            </div>
-                        </motion.div>
-                        {/* ITEM 5 */}
-                        <motion.div variants={fadeInUp} className='font-semibold text-[8px] leading-[1.3] text-secondary uppercase bg-white bg-[linear-gradient(75.84deg,#305CD8_-106.79%,rgba(48,92,216,0)_37.48%)] text-body-base z-[1] rounded-[8px] grid grid-cols-[40px_1fr] gap-[7px] py-[10px] px-[8px] w-[190px] items-center absolute top-[50%] start-[calc(50%+20px)]'>
-                            <Image src={ProfessionalTeamMIcon} alt='Years of Experience'/>
-                            <div>
-                                <div className="text-[18px] leading-[1.5] text-left font-bold text-navy font-dm-sans">70+</div>
-                                <div>professional team</div>
-                            </div>
-                        </motion.div>
-                        {/* ITEM 6 */}
-                        <motion.div variants={fadeInUp} className='font-semibold text-[11px] leading-[1.3] text-left text-secondary uppercase bg-white bg-[linear-gradient(74.29deg,#305CD8_-42.96%,rgba(48,92,216,0)_31.74%)] text-body-base z-[1] rounded-[8px] grid grid-cols-[45px_1fr] gap-[7px] py-[10px] px-[8px] w-[170px] items-center absolute top-[80%] start-[calc(50%+30px)]'>
-                            <Image src={GYourBusinessMIcon} alt='Growth your Business'/>
-                            <div>Growth your Business</div>
-                        </motion.div>
-                    </div>
-                    
-                    <div className="flex items-center justify-center md:justify-start">
-                        <motion.div variants={fadeInUp} className="mt-[36px] items-center inline-flex gap-[10px] bg-[linear-gradient(180deg,rgba(255,255,255,0)_7.89%,_#FFFFFF_100%)] shadow-[0px_20px_60px_rgba(37,75,148,0.13)] rounded-[18px] p-[8px]">
-                            <Image src={AwardsBanner} className='max-w-[170px] lg:max-w-full h-auto' alt='Banner' />
-                            <div className='font-semibold leading-[1.4] font-body-base text-navy'>10+ <br />Award</div>
-                        </motion.div>
+
+                        </div>
                     </div>
                 </div>
                 <div className="grid__item hidden lg:block text-end">                        

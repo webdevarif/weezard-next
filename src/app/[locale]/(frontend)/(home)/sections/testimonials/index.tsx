@@ -9,6 +9,7 @@ import AuthorPic2 from './assets/author-pic-2.png';
 import AuthorPic3 from './assets/author-pic-3.png';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/app/[locale]/components/ui/carousel"
 import { Button } from '@/app/[locale]/components/ui/button';
+import { ExpandableParagraph } from '@/app/[locale]/components/ui/expandable-paragraph';
 
 const TestimonialsSection = () => {
     const data = {
@@ -63,7 +64,12 @@ const TestimonialsSection = () => {
                 <div className="space-y-[10px] lg:text-center">
                     <span className='text-blue bg-blue/10 text-[14px] inline-flex leading-[1.7] uppercase py-[5px] px-[14px] font-semibold rounded-full'>Testimonials</span>
                     <h3 className="text-[32px] lg:text-[45px] leading-[1.2] font-dm-sans -tracking-[0.01em] text-navy font-bold">See Our Client Testimonials and Be the Judge</h3>
-                    <p className="text-heading-2 font-normal text-secondary">We let our clients’ voices do the talking. With a focus on delivering white-label IT services, Weezard has built strong relationships with businesses across various industries. Our clients consistently see the value of our work, and that shows. Hear directly from those we’ve worked with and see how our solutions can make a real difference for your business.</p>
+                    <ExpandableParagraph 
+                        text={data.content}
+                        className="text-heading-2 font-normal text-secondary"
+                        variant="blue"
+                        align="left"
+                    />
                 </div>
             </div>
 

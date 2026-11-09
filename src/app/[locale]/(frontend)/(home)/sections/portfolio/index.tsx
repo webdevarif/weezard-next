@@ -1,191 +1,149 @@
-import React from 'react'
-import { Badge } from '@/app/[locale]/components/ui/badge';
-import { Button } from '@/app/[locale]/components/ui/button';
-import { Card } from '@/app/[locale]/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/app/[locale]/components/ui/carousel"
-import Image from 'next/image'
-import styles from './portfolio.module.css'
-import Banner1 from './assets/banner-1.jpg';
-import Banner2 from './assets/banner-2.jpg';
-import Banner3 from './assets/banner-3.jpg';
-import Banner4 from './assets/banner-4.jpg';
+/**
+ * Portfolio Section Container
+ * 
+ * Orchestrates the modular Portfolio section:
+ * - DotGridBackground: Exact Figma 1920x1129 SVG Dot Pattern + atmospheric ambient radial glow overlay
+ * - PortfolioHeader: Case study badge, title, and descriptive intro
+ * - PortfolioCategoryFilter: Pixel-perfect floating category cluster matching Figma
+ * - PortfolioVerticalSlider: Desktop 2-column continuous vertical scrolling ticker
+ * - PortfolioMobileCarousel: Responsive mobile carousel with touch swipe & indicators
+ */
 
-const Portfolio = () => {
-  const categories = [
-    'All',
-    'Website Design',
-    'Web Development',
-    'Digital Marketing',
-    'SEO',
-    'Design Branding',
-    'Social Media',
-    'Marketing'
-  ]
+"use client";
 
-  const portfolioItems = [
-    {
-      id: 1,
-      category: 'DESIGN BRANDING',
-      image: Banner1
-    },
-    {
-      id: 2,
-      category: 'WEB DEVELOPMENT',
-      image: Banner2
-    },
-    {
-      id: 3,
-      category: 'DIGITAL MARKETING',
-      image: Banner3
-    },
-    {
-      id: 4,
-      category: 'WEBSITE DESIGN',
-      image: Banner4
-    },
-    {
-      id: 5,
-      category: 'SEO',
-      image: Banner2
-    },
-    {
-      id: 6,
-      category: 'SOCIAL MEDIA',
-      image: Banner3
-    },
-    {
-      id: 7,
-      category: 'SOCIAL MEDIA',
-      image: Banner4
-    },
-    {
-      id: 8,
-      category: 'SOCIAL MEDIA',
-      image: Banner1
+import React, { useState, useMemo } from "react";
+import { DotGridBackground } from "./components/DotGridBackground";
+import { PortfolioHeader } from "./components/PortfolioHeader";
+import { PortfolioCategoryFilter } from "./components/PortfolioCategoryFilter";
+import { PortfolioVerticalSlider } from "./components/PortfolioVerticalSlider";
+import { PortfolioMobileCarousel } from "./components/PortfolioMobileCarousel";
+import { CategoryFilterItem, PortfolioItem } from "./types";
+
+// Local image assets
+import Banner1 from "./assets/banner-1.jpg";
+import Banner2 from "./assets/banner-2.jpg";
+import Banner3 from "./assets/banner-3.jpg";
+import Banner4 from "./assets/banner-4.jpg";
+
+/**
+ * Category configuration with pixel-perfect desktop coordinates and angles
+ * matching the Figma reference screenshot 1:1.
+ */
+const CATEGORIES: CategoryFilterItem[] = [
+  {
+    name: "All",
+    rotationDeg: 0,
+    desktopPosition: { left: "8%", top: "8%", zIndex: 30 },
+    offsetClass: "z-20",
+  },
+  {
+    name: "Website Design",
+    rotationDeg: 18,
+    desktopPosition: { left: "27%", top: "2%", zIndex: 10 },
+    offsetClass: "-translate-y-1 translate-x-1",
+  },
+  {
+    name: "Web Development",
+    rotationDeg: -14,
+    desktopPosition: { left: "60%", top: "15%", zIndex: 10 },
+    offsetClass: "-translate-y-0.5 translate-x-2",
+  },
+  {
+    name: "Digital Marketing",
+    rotationDeg: -16,
+    desktopPosition: { left: "3%", top: "40%", zIndex: 20 },
+    offsetClass: "translate-y-1",
+  },
+  {
+    name: "SEO",
+    rotationDeg: 0,
+    desktopPosition: { left: "40%", top: "42%", zIndex: 15 },
+    offsetClass: "translate-x-1",
+  },
+  {
+    name: "Design Branding",
+    rotationDeg: 0,
+    desktopPosition: { left: "58%", top: "54%", zIndex: 10 },
+    offsetClass: "translate-x-1",
+  },
+  {
+    name: "Social Media",
+    rotationDeg: -15,
+    desktopPosition: { left: "21%", top: "68%", zIndex: 25 },
+    offsetClass: "translate-y-1.5",
+  },
+  {
+    name: "Marketing",
+    rotationDeg: 0,
+    desktopPosition: { left: "50%", top: "76%", zIndex: 10 },
+    offsetClass: "translate-y-1 translate-x-1",
+  },
+];
+
+/**
+ * Portfolio showcase items matching Figma reference
+ * - Left column: Banner1 (Nike Air Max) & Banner4 (GetTrip)
+ * - Right column: Banner2 (Cyber Security) & Banner3 (UI/UX Dark Mockup)
+ */
+const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  { id: 1, category: "DESIGN BRANDING", image: Banner1 },
+  { id: 2, category: "WEB DEVELOPMENT", image: Banner2 },
+  { id: 3, category: "DESIGN BRANDING", image: Banner4 },
+  { id: 4, category: "UI/UX", image: Banner3 },
+  { id: 5, category: "WEBSITE DESIGN", image: Banner1 },
+  { id: 6, category: "DIGITAL MARKETING", image: Banner2 },
+  { id: 7, category: "MARKETING", image: Banner4 },
+  { id: 8, category: "SEO", image: Banner3 },
+];
+
+const Portfolio: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  // Dynamically filter items based on the active category pill
+  const filteredItems = useMemo(() => {
+    if (activeCategory.toLowerCase() === "all") {
+      return PORTFOLIO_ITEMS;
     }
-  ]
+    const filtered = PORTFOLIO_ITEMS.filter((item) =>
+      item.category.toLowerCase().includes(activeCategory.toLowerCase()) ||
+      activeCategory.toLowerCase().includes(item.category.toLowerCase())
+    );
+    // Fallback to all items if a category has no items yet
+    return filtered.length > 0 ? filtered : PORTFOLIO_ITEMS;
+  }, [activeCategory]);
 
   return (
-    <section className="relative w-full py-24 overflow-hidden bg-dotted-spacing-4 bg-dotted-gray-200">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Panel - Static Content */}
-          <div className="col-span-1 lg:col-span-5 md:col-span-6">
-            <div className="">
-              <Badge className="px-4 py-2 text-sm font-medium rounded-full bg-blue-50 text-blue-600 border-blue-200 mb-[10px]">
-                CASE STUDY
-              </Badge>
-              
-              <h2 className="text-4xl font-dm-sans lg:text-title-2 font-bold text-navy leading-tight mb-[20px]">
-                Our Portfolio
-              </h2>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-[540px] mb-[40px]">
-                Every project we touch on is built with purpose, precision, and achievable goals. These portfolios highlight the kind of work we stand behind. These reflect our craft, our care, and our commitment to helping brands grow. Take a scroll through the transformations we’ve crafted, and find out what Weezard can do for you.
-              </p>
-              
-              {/* Category Chips */}
-              <div className="flex flex-wrap gap-3">
-                {categories.map((category, index) => (
-                  <Button
-                    key={index}
-                    variant={index === 0 ? "default" : "secondary"}
-                    className={`rounded-full px-6 py-2 min-w-[70px] text-heading-2 font-semibold transition-all shadow-none border-none ${
-                      index === 0 
-                        ? 'bg-[linear-gradient(129.49deg,#305CD8_7.87%,_#903DD1_146.55%)] hover:bg-[linear-gradient(129.49deg,#305CD8_7.87%,_#903DD1_146.55%)] text-white' 
-                        : 'bg-[#E7EDFE] hover:bg-[#E7EDFE]/80 text-muted-foreground'
-                    }`}
-                  >
-                    {category}
-                  </Button>
-                ))}
-              </div>
-            </div>
+    <section className="relative w-full py-20 lg:py-28 overflow-hidden bg-white">
+      {/* 
+        ========================================================================
+        Full Section Background Overlay (Dot Grid + Ambient Glow)
+        Renders at z-0 so it sits cleanly on top of bg-white and behind z-10 content
+        ========================================================================
+      */}
+      <DotGridBackground />
+
+      {/* Main Content Container Layer (z-10) */}
+      <div className="container relative z-10 mx-auto px-4 lg:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column: Header and Interactive Floating Filter Buttons */}
+          <div className="col-span-1 lg:col-span-5 flex flex-col justify-center">
+            <PortfolioHeader />
+            <PortfolioCategoryFilter
+              categories={CATEGORIES}
+              activeCategory={activeCategory}
+              onSelectCategory={setActiveCategory}
+            />
           </div>
-          
-          {/* Right Panel - Vertical Slider */}
-          <div className="col-span-1 lg:col-span-7 md:col-span-6">
-            {/* Desktop: Animated Columns */}
-            <div className="hidden lg:block">
-              <div className={`${styles.sliderContainer} group relative h-[650px] overflow-hidden`}>
-                <div className="grid grid-cols-2 gap-6">
-                  {/* Left Column - Scrolls UP */}
-                  <div className={`${styles.sliderColUp} slider-col up`}>
-                    <div className="space-y-6">
-                      {[...portfolioItems, ...portfolioItems].map((item, index) => (
-                        <Card key={`up-${index}`} className="relative overflow-hidden rounded-[16px] h-[370px] border border-solid border-blue">
-                          <Badge className="absolute top-[16px] left-[18px] z-10 bg-black/75 rounded-[6px] text-white uppercase text-[14px] border-none px-[6px] py-[4px]">
-                            {item.category}
-                          </Badge>
-                          <Image
-                            src={item.image}
-                            alt={item.category}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Right Column - Scrolls DOWN */}
-                  <div className={`${styles.sliderColDown} slider-col down`}>
-                    <div className="space-y-6">
-                      {[...portfolioItems.slice().reverse(), ...portfolioItems.slice().reverse()].map((item, index) => (
-                        <Card key={`down-${index}`} className="relative overflow-hidden rounded-[16px] h-[370px] border border-solid border-blue">
-                          <Badge className="absolute top-[16px] left-[18px] z-10 bg-black/75 rounded-[6px] text-white uppercase text-[14px] border-none px-[6px] py-[4px]">
-                            {item.category}
-                          </Badge>
-                          <Image
-                            src={item.image}
-                            alt={item.category}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Mobile: Portfolio Carousel */}
-            <div className="lg:hidden">
-              <Carousel
-                opts={{
-                  align: "start",
-                }}
-                className="w-full"
-              >
-                <CarouselContent className="-ml-4">
-                  {portfolioItems.map((item, index) => (
-                    <CarouselItem key={index} className="basis-[90%] pl-4">
-                      <Card className="relative overflow-hidden rounded-[16px] h-[370px] border border-solid border-blue">
-                        <Badge className="absolute top-[16px] left-[18px] z-10 bg-black/75 rounded-[6px] text-white uppercase text-[14px] border-none px-[6px] py-[4px]">
-                          {item.category}
-                        </Badge>
-                        <Image
-                          src={item.image}
-                          alt={item.category}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselDots className='mt-4 [&_.carousel-bullet]:bg-[#D9D9D9] [&_.carousel-bullet-active]:!bg-[#305CD8]' />
-              </Carousel>
-            </div>
+
+          {/* Right Column: Dynamic Project Showcase (Vertical Ticker on Desktop, Carousel on Mobile) */}
+          <div className="col-span-1 lg:col-span-7">
+            <PortfolioVerticalSlider items={filteredItems} />
+            <PortfolioMobileCarousel items={filteredItems} />
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

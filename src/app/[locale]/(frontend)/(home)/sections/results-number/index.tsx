@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import ResultsNumberBanner from './assets/banner.png';
+import { ExpandableParagraph } from '@/app/[locale]/components/ui/expandable-paragraph';
 
 const ResultsNumber = () => {
   return (
@@ -11,7 +12,12 @@ const ResultsNumber = () => {
                     <div className="max-w-[560px] text-center lg:text-start">
                         <span className="text-yellow bg-white/10 text-[14px] inline-flex leading-[1.7] uppercase py-[5px] px-[14px] font-semibold rounded-full mb-[10px]">Results That Speak</span>
                         <h2 className='text-subtitle-2 sm:text-title-2 font-bold mb-[16px]'>Our Results in Number</h2>
-                        <p className="text-heading-2 !leading-[1.5]">At Weezard, every project leaves a trail of measurable impact. Whether it’s the quantity of our happy clients, or the data of our impacts, each number tells a story of consistent delivery and real growth.</p>
+                        <ExpandableParagraph 
+                            text="At Weezard, every project leaves a trail of measurable impact. Whether it’s the quantity of our happy clients, or the data of our impacts, each number tells a story of consistent delivery and real growth."
+                            className="text-heading-2 !leading-[1.5]"
+                            variant="yellow"
+                            align="center"
+                        />
 
                         <div className="relative mt-[30px] inline-flex before:content-[''] before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-[linear-gradient(180deg,rgba(48,92,216,0)0%,#305CD8_133.67%)] rounded-[12px] lg:rounded-[16px] overflow-hidden">
                             <Image src={ResultsNumberBanner} alt="Results Number Banner" className="w-full h-auto max-w-full object-cover" />
