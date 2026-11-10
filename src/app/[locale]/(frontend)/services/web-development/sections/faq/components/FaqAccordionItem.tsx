@@ -56,7 +56,7 @@ export const FaqAccordionItem: React.FC<FaqAccordionItemProps> = ({
         {/* Header row: Question and Plus/Minus icon */}
         <div className="flex items-center justify-between gap-4">
           <h3
-            className={`font-dm-sans font-semibold text-[17px] sm:text-[18px] leading-[27px] flex-1 ${
+            className={`font-dm-sans font-bold sm:font-semibold text-[16px] leading-[24px] sm:text-[18px] sm:leading-[27px] flex-1 ${
               isOpen ? "text-white" : "text-[#092856]"
             }`}
           >
@@ -111,7 +111,7 @@ export const FaqAccordionItem: React.FC<FaqAccordionItemProps> = ({
               transition={{ duration: 0.28, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <p className="mt-2 pt-1 font-manrope font-normal text-[16px] sm:text-[18px] leading-[27px] text-white">
+              <p className="mt-2 pt-1 font-manrope font-normal text-[18px] leading-[27px] text-white">
                 {answer}
               </p>
             </motion.div>

@@ -17,10 +17,17 @@ export async function generateMetadata({
 
   return generatePageMetadata(
     {
-      title: "Web Development Services",
-      description: "Explore our professional web development services and solutions",
+      title: "High-Performance Custom Web Development Services",
+      description:
+        "Custom, scalable, and fast web development solutions built from scratch. Robust full-stack architectures engineered for security, speed, and business growth.",
       path: "/services/web-development",
-      keywords: ["services", "web development", "solutions", "professional"],
+      keywords: [
+        "web development",
+        "custom web development",
+        "full stack development",
+        "scalable websites",
+        "fast web solutions",
+      ],
     },
     locale
   );
@@ -38,4 +45,3 @@ export default function WebDevelopmentServicesPage() {
     </BaseLayout>
   );
 }
-

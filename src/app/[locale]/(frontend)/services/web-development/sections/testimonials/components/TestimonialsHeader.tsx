@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { PillButton } from "@/app/[locale]/components/ui/pill-button";
 
 export interface TestimonialsHeaderProps {
   title: string;
@@ -14,7 +14,7 @@ export interface TestimonialsHeaderProps {
  * Header component matching Figma Frame 1686558268:
  * - Title: DM Sans 700, 45px/54px, letter-spacing -0.02em, #092856
  * - Subtitle: Manrope 400, 18px/27px, #495162
- * - CTA Button: 219px x 60px rounded-full, 1px solid #092856, DM Sans 600 16px/20px
+ * - CTA Button: Global PillButton (60px height, rounded-full, 1px solid #092856)
  */
 export const TestimonialsHeader: React.FC<TestimonialsHeaderProps> = ({
   title,
@@ -36,26 +36,14 @@ export const TestimonialsHeader: React.FC<TestimonialsHeaderProps> = ({
 
       {cta && (
         <div className="flex-shrink-0">
-          <Link
+          <PillButton
             href={cta.href}
-            className="inline-flex items-center justify-center gap-2.5 w-[219px] h-[60px] rounded-full border border-solid border-[#092856] text-[#092856] font-dm-sans font-semibold text-[16px] leading-[20px] tracking-[-0.01em] transition-all duration-300 hover:bg-[#092856] hover:text-white group flex-shrink-0"
-          >
-            <span>{cta.label}</span>
-            <svg
-              className="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 17L17 7M17 7H7M17 7V17"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
+            label={cta.label}
+            variant="outline"
+            hoverVariant="dark"
+            size="lg"
+            className="w-full sm:w-[219px]"
+          />
         </div>
       )}
     </div>

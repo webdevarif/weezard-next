@@ -38,38 +38,38 @@ export const webDevelopmentData = {
         id: "custom-dev",
         title: "Custom Development",
         description: "We build tailored websites from the ground up — no templates, just clean, efficient code.",
-        icon: "/services/web-development/features/icon-custom-code.png",
+        icon: "/services/web-development/features/icon-custom-code.webp",
         isHovered: true // Represents the Figma active/hover card in SVG
       },
       {
         id: "secure-reliable",
         title: "Secure & Reliable",
         description: "We follow best practices to protect your site from threats and ensure long-term stability.",
-        icon: "/services/web-development/features/icon-fullstack.png"
+        icon: "/services/web-development/features/icon-fullstack.webp"
       },
       {
         id: "fast-performance",
         title: "Fast & Optimized Performance",
         description: "We use modern tech stacks and optimization techniques to ensure your site loads quickly and runs smoothly.",
-        icon: "/services/web-development/features/icon-speed-seo.png"
+        icon: "/services/web-development/features/icon-speed-seo.webp"
       },
       {
         id: "easy-backend",
         title: "Easy-to-Manage Backend",
         description: "With user-friendly CMS integration, you can manage your website without needing technical expertise.",
-        icon: "/services/web-development/features/icon-responsive.png"
+        icon: "/services/web-development/features/icon-responsive.webp"
       },
       {
         id: "device-compatibility",
         title: "Mobile & Device Compatibility",
         description: "Every website is fully responsive, offering great user experience across devices.",
-        icon: "/services/web-development/features/icon-security.png"
+        icon: "/services/web-development/features/icon-security.webp"
       },
       {
         id: "seo-friendly",
         title: "SEO-Friendly Design",
         description: "Our websites are built with SEO best practices in mind, helping you rank higher in search engine results.",
-        icon: "/services/web-development/features/icon-support.png"
+        icon: "/services/web-development/features/icon-support.webp"
       }
     ]
   },

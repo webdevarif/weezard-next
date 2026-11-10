@@ -18,9 +18,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { SliderArrowButton } from "@/app/[locale]/components/ui/slider-arrow-button";
+import { PillButton } from "@/app/[locale]/components/ui/pill-button";
 
 export interface CaseStudyItem {
   id: string;
@@ -83,26 +83,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesProps> = ({ data }) => {
 
           {data.header.cta && (
             <div className="flex-shrink-0">
-              <Link
+              <PillButton
                 href={data.header.cta.href}
-                className="inline-flex items-center justify-center gap-2.5 h-[54px] sm:h-[60px] px-6 sm:px-8 rounded-full border border-solid border-[#092856] text-[#092856] font-dm-sans font-semibold text-[15px] sm:text-[16px] transition-all duration-300 hover:bg-[#092856] hover:text-white group flex-shrink-0"
-              >
-                <span>{data.header.cta.label}</span>
-                <svg
-                  className="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 13L13 1M13 9V1H5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
+                label={data.header.cta.label}
+                variant="outline"
+                hoverVariant="dark"
+                size="lg"
+              />
             </div>
           )}
         </div>

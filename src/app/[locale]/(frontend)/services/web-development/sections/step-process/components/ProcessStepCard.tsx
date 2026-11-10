@@ -25,7 +25,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import { StepBadge } from "./StepBadge";
+import { CardFrame } from "./CardFrame";
 
 export interface StepItemData {
   stepNumber: string;
@@ -36,53 +37,30 @@ export interface StepItemData {
 interface ProcessStepCardProps {
   step: StepItemData;
   index: number;
-  isHovered: boolean;
-  onHover: (idx: number | null) => void;
+  isHovered?: boolean;
+  onHover?: (idx: number | null) => void;
   className?: string;
 }
 
 export const ProcessStepCard: React.FC<ProcessStepCardProps> = ({
   step,
   index,
-  isHovered,
-  onHover,
   className = "",
 }) => {
   const stepIdx = index + 1;
-  const badgeSrc = `/services/web-development/process/badge-step-${stepIdx}.svg`;
-  const frameSrc = `/services/web-development/process/card-frame-step-${stepIdx}.svg`;
 
   return (
     <div
-      onMouseEnter={() => onHover(index)}
-      onMouseLeave={() => onHover(null)}
-      className={`relative w-[255px] h-[234px] rounded-[12px] transition-all duration-300 cursor-pointer select-none ${
-        isHovered
-          ? "-translate-y-2 shadow-[0_24px_48px_rgba(37,75,148,0.18)]"
-          : "shadow-[0_20px_40px_rgba(37,75,148,0.10)] hover:-translate-y-1 hover:shadow-[0_22px_44px_rgba(37,75,148,0.14)]"
-      } ${className}`}
+      className={`group relative w-[255px] h-[234px] rounded-[12px] transition-all duration-300 ease-out cursor-pointer select-none shadow-[0_20px_40px_rgba(37,75,148,0.10)] hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(37,75,148,0.18)] will-change-transform ${className}`}
     >
-      {/* 1. Top Centered Floating Pill Badge */}
+      {/* 1. Top Centered Floating Pill Badge (Synchronous inline SVG, 0ms latency) */}
       <div className="absolute -top-[19.5px] left-1/2 -translate-x-1/2 z-30 pointer-events-none drop-shadow-sm">
-        <Image
-          src={badgeSrc}
-          alt={step.stepNumber}
-          width={90}
-          height={39}
-          className="h-[39px] w-auto object-contain"
-          priority
-        />
+        <StepBadge stepIndex={stepIdx} />
       </div>
 
-      {/* 2. SVG Card Background Frame (White Base + 1.5px #DFDFDF border + Top-Right Purple Accent + Left Crescent Line) */}
+      {/* 2. SVG Card Background Frame (Synchronous inline SVG, 0ms latency) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[12px]">
-        <Image
-          src={frameSrc}
-          alt={`Step ${stepIdx} Frame`}
-          fill
-          className="object-fill pointer-events-none"
-          priority
-        />
+        <CardFrame stepIndex={stepIdx} />
       </div>
 
       {/* 3. Card Content */}

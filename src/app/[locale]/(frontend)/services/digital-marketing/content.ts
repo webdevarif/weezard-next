@@ -9,126 +9,229 @@ import { ComparisonRowData } from "../web-design/sections/comparison-table/data"
  */
 
 export const digitalMarketingData = {
-  // Section 1: Hero Section Data
+  // Section 1: Hero Section Data (Directly matching Figma CSS & Design)
   hero: {
-    badge: "Digital Marketing That Delivers Real Growth",
-    rating: {
-      score: "4.9/5",
-      text: "Trusted by 500+ Businesses",
-      stars: 5,
-    },
     title: {
-      primary: "Drive More Leads, Sales & Revenue with",
-      highlight: "Data-Driven Marketing",
+      prefix: "Leading",
+      accent: "Digital Marketing Agency",
+      suffix: "for Small Business",
     },
     description:
-      "Stop wasting ad spend on vanity metrics. We build tailored marketing campaigns across SEO, Google Ads, Meta Ads, and Content Marketing that turn clicks into loyal paying customers.",
+      "If you are looking for a digital marketing agency for small businesses, Weezard got you covered! We help small businesses get found, get noticed, and get customers. Our tailored digital marketing strategies combine SEO, content, social media, and more, so you can focus on your business while we grow your online presence.",
     cta: {
-      label: "Get a Free Marketing Audit",
+      label: "Audit Your Website for Free",
       href: "/contact-us",
     },
-    secondaryCta: {
-      label: "Explore Our Packages",
-      href: "#pricing",
-    },
-    stats: [
-      { label: "Average ROI Increase", value: "3.8x" },
-      { label: "Leads Generated", value: "120K+" },
-      { label: "Client Retention Rate", value: "96%" },
-    ],
   },
 
-  // Section 2: Why Choose Us / Marketing Features
+  // Section 2: Why Digital Marketing / Why Choose Us Features
   features: {
     header: {
-      tag: "Why Choose Weezard",
-      title: "Marketing Built on Science, Strategy, and Real Returns",
+      title: "Why Digital Marketing Is a Game-Changer for Small Businesses.",
       subtitle:
-        "Every dollar you invest in marketing should have a clear purpose. We blend creative storytelling with granular analytics to ensure continuous, measurable pipeline growth.",
+        "Today's customers are searching, scrolling, and deciding online. Without a strong digital presence, even great businesses get overlooked. We help you show up in searches, stay top-of-mind on social media, and turn visitors into customers—all within your budget.",
+      cta: {
+        label: "Explore More Case Studies",
+        href: "/case-studies",
+      },
     },
     items: [
       {
-        id: "targeted-seo",
-        title: "High-Intent SEO & Rankings",
+        id: "local-customers",
+        title: "Get Found by Local Customers",
+        highlightText: "46%",
         description:
-          "Dominate Google search results for commercial keywords that your highest-value customers are actually searching for.",
-        iconBg: "bg-blue-50 text-blue-600",
+          "of all Google searches are for local businesses. If you're not visible, you're missing out on your customer base",
+        variant: "white" as const,
+        iconPath: "/services/digital-marketing/why-choose-us/icon_3d.png",
       },
       {
-        id: "paid-ads",
-        title: "High-ROI Paid Advertising",
+        id: "stay-on-feed",
+        title: "Stay on Their Feed, Stay on Their Mind",
         description:
-          "Precision targeted campaigns on Google, Meta, and LinkedIn with continuous A/B testing to lower customer acquisition cost.",
-        iconBg: "bg-amber-50 text-amber-600",
+          "Consistent social media presence builds brand trust. Which turns casual scrollers into loyal customers.",
+        variant: "featured" as const,
+        iconPath: "/services/digital-marketing/why-choose-us/icon_3d.png",
       },
       {
-        id: "funnel-optimization",
-        title: "Conversion Funnel Optimization",
+        id: "convert-clicks",
+        title: "Convert Clicks Into Clients",
         description:
-          "We refine your landing pages, offers, and user journeys to ensure you convert the maximum percentage of incoming visitors.",
-        iconBg: "bg-emerald-50 text-emerald-600",
+          "A well-planned digital journey, from ad to landing page, makes all the difference in turning interest into action.",
+        variant: "white" as const,
+        iconPath: "/services/digital-marketing/why-choose-us/icon_3d.png",
       },
       {
-        id: "content-strategy",
-        title: "Authoritative Content Strategy",
+        id: "ideal-audience",
+        title: "Speak Directly to Your Ideal Audience",
         description:
-          "Engaging copy, blog articles, and video scripts that establish your brand authority and educate buyers before they buy.",
-        iconBg: "bg-purple-50 text-purple-600",
-      },
-      {
-        id: "transparent-reporting",
-        title: "100% Transparent Live Analytics",
-        description:
-          "No smoke and mirrors. Access real-time custom dashboards tracking cost-per-lead, revenue generated, and key milestones.",
-        iconBg: "bg-rose-50 text-rose-600",
-      },
-      {
-        id: "dedicated-team",
-        title: "Dedicated Growth Specialists",
-        description:
-          "Work directly with senior strategists, copywriters, and media buyers who know your industry and communicate weekly.",
-        iconBg: "bg-indigo-50 text-indigo-600",
+          "Targeted campaigns let you reach the right people with the right message, saving time and marketing budget.",
+        variant: "white" as const,
+        iconPath: "/services/digital-marketing/why-choose-us/icon_3d.png",
       },
     ],
+    banner: {
+      src: "/services/digital-marketing/why-choose-us/why_choose_us_banner.png",
+      alt: "Digital Marketing Strategy - Team analyzing SEM and organic growth analytics",
+    },
   },
 
-  // Section 3: Step Process Section
+  // Section 3: Step-by-Step Growth Process / Marketing Services
   process: {
     header: {
-      tag: "Our 4-Step Growth Framework",
-      title: "How We Turn Your Marketing into a Predictable Growth Engine",
+      title: "What’s Included in Our Marketing Services",
       subtitle:
-        "A clear, repeatable roadmap engineered to eliminate guesswork and rapidly scale your customer base.",
+        "Our digital marketing service is designed to cover all key areas of your online growth. We don't just do one thing—we build a full system that works together to attract, engage, and convert your audience.",
+      cta: {
+        label: "Talk to a Marketing Expert",
+        href: "/contact-us",
+      },
     },
     steps: [
       {
-        stepNumber: "01",
-        title: "Deep Audit & Market Research",
-        description:
-          "We analyze your competitors, current traffic channels, customer personas, and past performance to identify immediate quick wins and long-term levers.",
+        id: "seo",
+        title: "Search Engine Optimization (SEO)",
+        subtitle: "Be found on Google",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/seo",
+        iconType: "find" as const,
       },
       {
-        stepNumber: "02",
-        title: "Custom Growth Strategy & Setup",
-        description:
-          "We build your conversion tracking, landing pages, creative assets, and audience targeting before launching a single paid or organic campaign.",
+        id: "content-creation",
+        title: "Content Creation",
+        subtitle: "Blogs, visuals & copywriting",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/content",
+        iconType: "blog" as const,
       },
       {
-        stepNumber: "03",
-        title: "Campaign Execution & A/B Testing",
-        description:
-          "We deploy multi-channel ads and SEO tactics, testing hundreds of creative hooks, audiences, and headlines to find the winning high-margin combinations.",
+        id: "social-media",
+        title: "Social Media Marketing",
+        subtitle: "Posts, strategy, and engagement",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/social-media",
+        iconType: "ads" as const,
       },
       {
-        stepNumber: "04",
-        title: "Scale, Optimize & Compound",
-        description:
-          "Once winning campaigns are identified, we scale budget efficiently while continuously monitoring ROAS and expanding into new channels.",
+        id: "email-marketing",
+        title: "Email Marketing",
+        subtitle: "Campaigns that build loyalty",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/email",
+        iconType: "email" as const,
+      },
+      {
+        id: "paid-ads",
+        title: "Paid Ads (Google & Meta)",
+        subtitle: "Get instant visibility",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/paid-ads",
+        iconType: "ad" as const,
+      },
+      {
+        id: "analytics",
+        title: "Analytics & Reporting",
+        subtitle: "Know what’s working",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/analytics",
+        iconType: "chart" as const,
+      },
+      {
+        id: "cro",
+        title: "Conversion Rate Optimization (CRO)",
+        subtitle: "Turn more visitors into customers",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/cro",
+        iconType: "funnel" as const,
+      },
+      {
+        id: "brand-reputation",
+        title: "Brand Reputation & Reviews",
+        subtitle: "Build trust that sells for you",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/reputation",
+        iconType: "shield" as const,
+      },
+      {
+        id: "influencer-outreach",
+        title: "Influencer & Outreach",
+        subtitle: "Amplify your message at scale",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/influencers",
+        iconType: "network" as const,
+      },
+      {
+        id: "automation",
+        title: "Marketing Automation & CRM",
+        subtitle: "Scale your revenue on autopilot",
+        ctaText: "Learn More",
+        href: "/services/digital-marketing/automation",
+        iconType: "automation" as const,
       },
     ],
   },
 
-  // Section 4: Transparent Pricing
+  // Section 4: How We Craft Your Marketing Strategy (Recent Projects / Strategic Steps)
+  strategy: {
+    header: {
+      title: "How We Craft Your Marketing Strategy",
+      subtitle:
+        "We follow a strategic process that balances creativity with data. We listen, research, plan, and execute campaigns that make sense for your industry and budget.",
+      cta: {
+        label: "Start With a Free Strategy Call",
+        href: "/contact-us",
+      },
+    },
+    steps: [
+      {
+        id: "discovery-audit",
+        stepNumber: 1,
+        stepLabel: "STEP 1",
+        title: "Discovery & Audit",
+        position: "bottom" as const,
+        bgColor: "#F6EBFE",
+        waveColor: "#C7B0FE",
+      },
+      {
+        id: "strategy-planning",
+        stepNumber: 2,
+        stepLabel: "STEP 2",
+        title: "Strategy Planning",
+        position: "top" as const,
+        bgColor: "#ECEDF9",
+        waveColor: "#B5B8E8",
+      },
+      {
+        id: "content-creation",
+        stepNumber: 3,
+        stepLabel: "STEP 3",
+        title: "Content & Campaign Creation",
+        position: "bottom" as const,
+        bgColor: "#F3F0D7",
+        waveColor: "#DED69C",
+      },
+      {
+        id: "execution-monitoring",
+        stepNumber: 4,
+        stepLabel: "STEP 4",
+        title: "Execution & Monitoring",
+        position: "top" as const,
+        bgColor: "#F6EBFE",
+        waveColor: "#C7B0FE",
+      },
+      {
+        id: "reporting-optimization",
+        stepNumber: 5,
+        stepLabel: "STEP 5",
+        title: "Reporting & Optimization",
+        position: "bottom" as const,
+        bgColor: "#D7ECFE",
+        waveColor: "#A9D5FD",
+      },
+    ],
+  },
+
+  // Section 5: Transparent Pricing
   pricing: {
     header: {
       caption: "Digital Marketing Packages",
@@ -285,7 +388,327 @@ export const digitalMarketingData = {
     ] as ComparisonRowData[],
   },
 
-  // Section 6: High-Impact CTA Banner
+  // Section 7: Case Studies & Real Impact
+  caseStudies: {
+    header: {
+      title: "Real Businesses. Real Growth.",
+      subtitle:
+        "From local shops to service-based startups, we’ve helped clients grow their leads, traffic, and brand awareness. See how our marketing made the difference.",
+      cta: {
+        label: "Explore More Case Studies",
+        href: "/case-studies",
+      },
+    },
+    tabs: [
+      {
+        id: "problem",
+        label: "Problem",
+        bgColor: "#EE3838",
+        borderColor: "#EE3838",
+      },
+      {
+        id: "what-we-did",
+        label: "What We Did",
+        bgColor: "#305CD8",
+        borderColor: "#305CD8",
+      },
+      {
+        id: "result",
+        label: "Result",
+        bgColor: "#903DD1",
+        borderColor: "#903DD1",
+      },
+    ],
+    image: "/services/digital-marketing/case-studies/case-study-hero.png",
+  },
+
+  // Section 8: Client Testimonials & Feedback (24 Comprehensive Client Reviews)
+  testimonials: {
+    header: {
+      title: "Listen Directly from Our Past Clients",
+      subtitle:
+        "We take pride in building trust through results and transparency. Hear directly from the small business owners who’ve seen their brand grow with Weezard.",
+    },
+    items: [
+      // Batch 1 (Cards 1 to 6)
+      {
+        id: "testimonial-1",
+        rating: 5,
+        content:
+          "Compellingly implement high-payoff metrics without cooperative scenarios. Collaboratively embrace economically sound.",
+        author: {
+          name: "Aurelia Stokes",
+          role: "Software Developer",
+          avatar: "/services/digital-marketing/testimonials/avatar-1.png",
+        },
+      },
+      {
+        id: "testimonial-2",
+        rating: 5,
+        content:
+          "Progressively myocardinate global catalysts for change before parallel portals.",
+        author: {
+          name: "Marcus Vance",
+          role: "E-commerce Founder",
+          avatar: "/services/digital-marketing/testimonials/avatar-2.png",
+        },
+      },
+      {
+        id: "testimonial-3",
+        rating: 5,
+        isFeatured: true,
+        content:
+          "Interactively myocardinate seamless processes with collaborative markets. Dramatically reinvent performance based communities for principle-centered products. Proactively build unique content after proactive e-services.",
+        author: {
+          name: "Sophia Martinez",
+          role: "Growth Director",
+          avatar: "/services/digital-marketing/testimonials/avatar-3.png",
+        },
+      },
+      {
+        id: "testimonial-4",
+        rating: 5,
+        content:
+          "This platform has transformed the way I learn. The courses are engaging and the instructors are top-notch.",
+        author: {
+          name: "David Kim",
+          role: "Startup Founder",
+          avatar: "/services/digital-marketing/testimonials/avatar-4.png",
+        },
+      },
+      {
+        id: "testimonial-5",
+        rating: 5,
+        content:
+          "This platform has transformed the way I learn.",
+        author: {
+          name: "Elena Rostova",
+          role: "Product Manager",
+          avatar: "/services/digital-marketing/testimonials/avatar-5.png",
+        },
+      },
+      {
+        id: "testimonial-6",
+        rating: 5,
+        content:
+          "Holisticly pursue accurate relationships rather than open-source methods of empowerment. Compellingly implement high-payoff metrics without cooperative scenarios. Collaboratively embrace economically sound.",
+        author: {
+          name: "Julian Henderson",
+          role: "Marketing Strategist",
+          avatar: "/services/digital-marketing/testimonials/avatar-6.png",
+        },
+      },
+
+      // Batch 2 (Cards 7 to 12)
+      {
+        id: "testimonial-7",
+        rating: 5,
+        content:
+          "Weezard transformed our Google Ads ROI in under 45 days. The transparent dashboard gives us total confidence.",
+        author: {
+          name: "Chloe Bennett",
+          role: "Retail Store Owner",
+          avatar: "/services/digital-marketing/testimonials/avatar-1.png",
+        },
+      },
+      {
+        id: "testimonial-8",
+        rating: 5,
+        content:
+          "Their SEO roadmap put our boutique law practice on the first page of local searches. Inquiries tripled within 2 months.",
+        author: {
+          name: "Liam O'Connor",
+          role: "Managing Partner",
+          avatar: "/services/digital-marketing/testimonials/avatar-2.png",
+        },
+      },
+      {
+        id: "testimonial-9",
+        rating: 5,
+        isFeatured: true,
+        content:
+          "Working with Weezard was like hiring an entire enterprise growth team for a fraction of the cost. Their creative copywriting and automated email funnels generated over $80,000 in additional revenue during our peak season.",
+        author: {
+          name: "Hannah Nguyen",
+          role: "CMO, SaaS Brand",
+          avatar: "/services/digital-marketing/testimonials/avatar-3.png",
+        },
+      },
+      {
+        id: "testimonial-10",
+        rating: 5,
+        content:
+          "Professional, communicative, and truly data-driven. The weekly reporting calls kept our whole team aligned.",
+        author: {
+          name: "Alexander Reed",
+          role: "Operations Head",
+          avatar: "/services/digital-marketing/testimonials/avatar-4.png",
+        },
+      },
+      {
+        id: "testimonial-11",
+        rating: 5,
+        content:
+          "Our social media engagement grew by 400% after they took over our content schedule.",
+        author: {
+          name: "Amara Patel",
+          role: "Boutique Brand Director",
+          avatar: "/services/digital-marketing/testimonials/avatar-5.png",
+        },
+      },
+      {
+        id: "testimonial-12",
+        rating: 5,
+        content:
+          "Before Weezard, we spent thousands on random marketing tactics with no return. Their strategic growth process finally gave us predictable, repeatable sales pipeline results.",
+        author: {
+          name: "Thomas Wright",
+          role: "Co-Founder, Tech Logistics",
+          avatar: "/services/digital-marketing/testimonials/avatar-6.png",
+        },
+      },
+
+      // Batch 3 (Cards 13 to 18)
+      {
+        id: "testimonial-13",
+        rating: 5,
+        content:
+          "Their conversion rate optimization audit uncovered five major checkout bottlenecks we completely missed.",
+        author: {
+          name: "Victoria Bell",
+          role: "Apparel Brand Founder",
+          avatar: "/services/digital-marketing/testimonials/avatar-1.png",
+        },
+      },
+      {
+        id: "testimonial-14",
+        rating: 5,
+        content:
+          "They don't just run ads; they build a full customer acquisition engine tailored to your business.",
+        author: {
+          name: "Ryan Gallagher",
+          role: "Direct-to-Consumer CEO",
+          avatar: "/services/digital-marketing/testimonials/avatar-2.png",
+        },
+      },
+      {
+        id: "testimonial-15",
+        rating: 5,
+        isFeatured: true,
+        content:
+          "Weezard's multi-channel approach unified our Google search campaigns, Meta retargeting, and lifecycle marketing into one smooth machine. Our customer acquisition cost dropped by 34% in the very first quarter.",
+        author: {
+          name: "Sarah Jenkins",
+          role: "VP of Marketing, FinTech",
+          avatar: "/services/digital-marketing/testimonials/avatar-3.png",
+        },
+      },
+      {
+        id: "testimonial-16",
+        rating: 5,
+        content:
+          "Best agency experience we have ever had. No long-term lock-ins, just pure results month after month.",
+        author: {
+          name: "Brandon Cole",
+          role: "Dental Clinic Director",
+          avatar: "/services/digital-marketing/testimonials/avatar-4.png",
+        },
+      },
+      {
+        id: "testimonial-17",
+        rating: 5,
+        content:
+          "High quality creative assets delivered on time, every single week without exception.",
+        author: {
+          name: "Mia Larson",
+          role: "Creative Director",
+          avatar: "/services/digital-marketing/testimonials/avatar-5.png",
+        },
+      },
+      {
+        id: "testimonial-18",
+        rating: 5,
+        content:
+          "Weezard's technical SEO fixes solved indexing issues that our previous two agencies couldn't crack for years. Organic traffic has been climbing consistently ever since.",
+        author: {
+          name: "Jason Brooks",
+          role: "Head of Digital, Media Corp",
+          avatar: "/services/digital-marketing/testimonials/avatar-6.png",
+        },
+      },
+
+      // Batch 4 (Cards 19 to 24)
+      {
+        id: "testimonial-19",
+        rating: 5,
+        content:
+          "The speed of communication via our dedicated Slack channel is unparalleled. They respond in minutes.",
+        author: {
+          name: "Emily Watson",
+          role: "Real Estate Broker",
+          avatar: "/services/digital-marketing/testimonials/avatar-1.png",
+        },
+      },
+      {
+        id: "testimonial-20",
+        rating: 5,
+        content:
+          "Our lead volume doubled within 60 days of launching the new landing pages and targeted search ads.",
+        author: {
+          name: "Lucas Meyer",
+          role: "B2B Sales Leader",
+          avatar: "/services/digital-marketing/testimonials/avatar-2.png",
+        },
+      },
+      {
+        id: "testimonial-21",
+        rating: 5,
+        isFeatured: true,
+        content:
+          "From day one, Weezard demonstrated true mastery of digital growth. They rebuilt our brand tracking, launched high-converting visual ads, and optimized our Google presence so well that our team struggled to keep up with incoming leads!",
+        author: {
+          name: "Isabella Cruz",
+          role: "Managing Director, Wellness Co.",
+          avatar: "/services/digital-marketing/testimonials/avatar-3.png",
+        },
+      },
+      {
+        id: "testimonial-22",
+        rating: 5,
+        content:
+          "Transparent pricing with zero hidden fees. Everything promised in the proposal was delivered and exceeded.",
+        author: {
+          name: "Nathaniel Ward",
+          role: "Hospitality Executive",
+          avatar: "/services/digital-marketing/testimonials/avatar-4.png",
+        },
+      },
+      {
+        id: "testimonial-23",
+        rating: 5,
+        content:
+          "Exceptional ROI on Meta ads and high-converting creative video hooks that captivate our buyers.",
+        author: {
+          name: "Zoe Campbell",
+          role: "E-commerce Founder",
+          avatar: "/services/digital-marketing/testimonials/avatar-5.png",
+        },
+      },
+      {
+        id: "testimonial-24",
+        rating: 5,
+        content:
+          "If you are a growing business looking for a trustworthy marketing partner that genuinely cares about your bottom line, Weezard is the ultimate team to choose.",
+        author: {
+          name: "Oliver Hughes",
+          role: "Founder, Modern Consulting",
+          avatar: "/services/digital-marketing/testimonials/avatar-6.png",
+        },
+      },
+    ],
+  },
+
+  // Section 10: High-Impact CTA Banner
   ctaBanner: {
     title: "Ready to Turn Your Traffic into Predictable Revenue?",
     description:

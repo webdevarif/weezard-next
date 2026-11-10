@@ -1,48 +1,68 @@
-import React from "react";
+"use client";
 
-interface Props {
-  title?: string;
-  subtitle?: string;
+import React, { useState } from "react";
+import { TestimonialsHeader } from "./components/TestimonialsHeader";
+import { TestimonialsGrid } from "./components/TestimonialsGrid";
+import { TestimonialsNavigation } from "./components/TestimonialsNavigation";
+import { TestimonialsSectionData } from "./data/testimonialsData";
+
+interface DigitalMarketingTestimonialsProps {
+  data?: TestimonialsSectionData;
 }
 
 /**
  * DigitalMarketingTestimonials Component
  * 
- * Section 8: Client Feedback & Reviews
- * Matches Y: 8000 - 9000 in Digital Marketing SVG
+ * Section 8: "Listen Directly from Our Past Clients"
+ * Figma Specs:
+ * - Background: #EEF2F9
+ * - Header: 848px centered (45px DM Sans Bold & 18px Manrope)
+ * - 3-Column Masonry Grid: 1320px width x 669px height (gap 45px)
+ * - 24 Dynamic reviews in content.ts paginated 6-per-page
+ * - Centered SliderArrowButton navigation
  */
-export const DigitalMarketingTestimonials: React.FC<Props> = ({
-  title = "What Our Marketing Clients Say",
-  subtitle = "Don't just take our word for it. Hear directly from founders and growth leaders who trust Weezard with their marketing pipelines.",
+export const DigitalMarketingTestimonials: React.FC<DigitalMarketingTestimonialsProps> = ({
+  data,
 }) => {
-  return (
-    <section className="py-20 md:py-28 bg-[#FBFDFF] relative overflow-hidden">
-      <div className="container mx-auto px-4 max-w-[1320px]">
-        {/* Section Header */}
-        <div className="text-center max-w-[850px] mx-auto mb-14 md:mb-16">
-          <span className="text-[#305CD8] font-dm-sans font-semibold text-sm uppercase tracking-wider mb-3 inline-block">
-            Client Testimonials
-          </span>
-          <h2 className="text-[#092856] font-dm-sans font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight lg:leading-[52px] tracking-tight mb-4">
-            {title}
-          </h2>
-          <p className="text-[#495162] font-manrope text-base sm:text-lg leading-relaxed max-w-[760px] mx-auto">
-            {subtitle}
-          </p>
-        </div>
+  const [currentPage, setCurrentPage] = useState(0);
 
-        {/* Placeholder / Layout Frame */}
-        <div className="w-full min-h-[360px] rounded-2xl bg-white border border-dashed border-[#CAD6F4] flex flex-col items-center justify-center p-8 text-center shadow-sm">
-          <div className="w-16 h-16 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center font-bold text-2xl mb-4">
-            ★
-          </div>
-          <h3 className="text-[#092856] font-dm-sans font-bold text-xl mb-2">
-            Client Reviews & Ratings (4.9/5)
-          </h3>
-          <p className="text-[#495162] font-manrope text-sm sm:text-base max-w-md">
-            Testimonial quotes and client rating cards ready for final SVG copy and avatars.
-          </p>
-        </div>
+  if (!data || !data.items || data.items.length === 0) return null;
+
+  const pageSize = 6;
+  const totalPages = Math.ceil(data.items.length / pageSize);
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
+  };
+
+  const startIndex = currentPage * pageSize;
+  const currentBatch = data.items.slice(startIndex, startIndex + pageSize);
+
+  return (
+    <section className="relative w-full py-20 sm:py-24 lg:py-[100px] bg-[#EEF2F9] overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1320px] flex flex-col gap-10 lg:gap-[45px]">
+        {/* Top Header */}
+        <TestimonialsHeader
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+        />
+
+        {/* 3-Column Masonry Testimonial Grid */}
+        <TestimonialsGrid currentItems={currentBatch} />
+
+        {/* Bottom Navigation Buttons */}
+        <TestimonialsNavigation
+          onPrev={handlePrev}
+          onNext={handleNext}
+          canPrev={true}
+          canNext={true}
+          currentPage={currentPage + 1}
+          totalPages={totalPages}
+        />
       </div>
     </section>
   );

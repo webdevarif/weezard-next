@@ -9,9 +9,6 @@ import Pricing from "@/app/[locale]/components/sections/Pricing";
 import DigitalMarketingComparisonTable from "./sections/comparison-table";
 import DigitalMarketingCaseStudies from "./sections/case-studies";
 import DigitalMarketingTestimonials from "./sections/testimonials";
-import DigitalMarketingBlogs from "./sections/blogs";
-import DigitalMarketingCtaBanner from "./sections/cta-banner";
-import DigitalMarketingCtaForm from "./sections/cta-form";
 import Faq from "@/app/[locale]/components/sections/Faq";
 import { digitalMarketingData } from "./content";
 
@@ -48,8 +45,8 @@ export function PageContent() {
       {/* 3. Step-by-Step Growth Process */}
       <DigitalMarketingProcess data={data.process} />
 
-      {/* 4. Recent Marketing Projects & Campaigns */}
-      <DigitalMarketingRecentProjects />
+      {/* 4. Recent Marketing Projects & Campaigns (Strategy Roadmap) */}
+      <DigitalMarketingRecentProjects data={data.strategy} />
 
       {/* 5. Pricing (Starter, Growth, Scale) */}
       <Pricing data={data.pricing} />
@@ -58,21 +55,12 @@ export function PageContent() {
       <DigitalMarketingComparisonTable data={data.comparisonTable} />
 
       {/* 7. Real Case Studies & Impact */}
-      <DigitalMarketingCaseStudies />
+      <DigitalMarketingCaseStudies data={data.caseStudies} />
 
       {/* 8. Client Testimonials & Feedback */}
-      <DigitalMarketingTestimonials />
+      <DigitalMarketingTestimonials data={data.testimonials} />
 
-      {/* 9. Blog & Marketing Insights */}
-      <DigitalMarketingBlogs />
-
-      {/* 10. Mid/Bottom High-Impact CTA Banner */}
-      <DigitalMarketingCtaBanner data={data.ctaBanner} />
-
-      {/* 11. Lead Gen CTA Form */}
-      <DigitalMarketingCtaForm />
-
-      {/* 12. Global FAQ Section with Ambient Shapes */}
+      {/* 9. Global FAQ Section with Ambient Shapes */}
       <Faq
         data={data.faq}
         shapes={

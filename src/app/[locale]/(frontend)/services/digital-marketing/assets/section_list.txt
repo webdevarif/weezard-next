@@ -7,8 +7,5 @@
 ৬	Dynamic Comparison Table	<DigitalMarketingComparisonTable />	sections/comparison-table/index.tsx
 ৭	Case Studies & Impact	<DigitalMarketingCaseStudies />	sections/case-studies/index.tsx
 ৮	Client Testimonials & Feedback	<DigitalMarketingTestimonials />	sections/testimonials/index.tsx
-৯	Blog & Marketing Insights	<DigitalMarketingBlogs />	sections/blogs/index.tsx
-১০	Ready to Launch / High-Impact CTA Banner	<DigitalMarketingCtaBanner />	sections/cta-banner/index.tsx
-১১	Lead Gen Consultation Form	<DigitalMarketingCtaForm />	sections/cta-form/index.tsx
-১২	Global FAQ Section & Question Banner	<Faq />	@/app/[locale]/components/sections/Faq
+৯	Global FAQ Section & Question Banner	<Faq />	@/app/[locale]/components/sections/Faq
 
