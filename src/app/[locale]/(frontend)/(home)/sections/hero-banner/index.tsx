@@ -18,6 +18,7 @@ import YearsExperienceMIcon from './assets/years-experience-mobile-icon.png';
 import ProfessionalTeamMIcon from './assets/professional-team-mobile-icon.png';
 import GYourBusinessMIcon from './assets/growth-your-business-mobile-icon.png';
 import CoolShape from './assets/cool-shape.svg';
+import HeroAwardsBadge from './components/HeroAwardsBadge';
 
 const HeroBanner = () => {
   return (
@@ -59,6 +60,11 @@ const HeroBanner = () => {
                                 <GoArrowUpRight className="!h-[20px] !w-[20px]" />
                             </Link>
                         </Button>
+                    </motion.div>
+
+                    {/* Desktop Hero Awards Badge - positioned directly under CTA buttons */}
+                    <motion.div variants={fadeInUp} className="hidden md:block -ml-[60px] -mt-[14px]">
+                        <HeroAwardsBadge count="10+" label="Award" />
                     </motion.div>
 
 

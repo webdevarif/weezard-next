@@ -1,0 +1,45 @@
+<svg width="255" height="234" viewBox="0 0 255 234" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Card White Gradient Base -->
+    <linearGradient id="cardBg5" x1="127.5" y1="0" x2="127.5" y2="234" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Top-Right Purple Border Accent Gradient -->
+    <linearGradient id="purpleCorner5" x1="207.34" y1="33.8" x2="254.29" y2="-12.4" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#903DD1" stop-opacity="0"/>
+      <stop offset="1" stop-color="#903DD1"/>
+    </linearGradient>
+
+    <!-- Left Vertical Purple Accent Gradient -->
+    <linearGradient id="leftAccentGrad5" x1="0" y1="20" x2="0" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#903DD1" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#903DD1" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#903DD1" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip Path for Card Inner Elements -->
+    <clipPath id="cardClip5">
+      <rect width="255" height="234" rx="12" fill="white"/>
+    </clipPath>
+  </defs>
+
+  <!-- 1. Base Frosted Card Background -->
+  <rect width="255" height="234" rx="12" fill="url(#cardBg5)"/>
+
+  <!-- 2. Inside Masked Details -->
+  <g clip-path="url(#cardClip5)">
+    <!-- Left Edge Curved Purple Accent Sliver -->
+    <path d="M0 35C1.8 70 2.5 105 2.5 125C2.5 145 1.8 175 0 205C0.8 175 1.2 145 1.2 125C1.2 105 0.8 70 0 35Z" fill="url(#leftAccentGrad5)"/>
+  </g>
+
+  <!-- 3. Base Card Border (1.5px #DFDFDF) -->
+  <rect x="0.75" y="0.75" width="253.5" height="232.5" rx="11.25" stroke="#DFDFDF" stroke-width="1.5"/>
+
+  <!-- 4. Top-Right Corner Purple Gradient Accent Stroke -->
+  <rect x="0.75" y="0.75" width="253.5" height="232.5" rx="11.25" stroke="url(#purpleCorner5)" stroke-width="2"/>
+
+  <!-- 5. Left Vertical Purple Gradient Accent Line (exact tapered highlight) -->
+  <path d="M1 30Q3.5 117 1 200" stroke="url(#leftAccentGrad5)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

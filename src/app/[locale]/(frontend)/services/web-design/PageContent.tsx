@@ -21,6 +21,7 @@
 import React from "react";
 import HeroSection from "./sections/hero";
 import WhyChooseUsSection from "./sections/why-choose-us";
+import whyChooseBannerImg from "./assets/why_choose_us/why-choose-banner.png";
 import StepProcessSection from "./sections/step-process";
 import RecentProjectsSection from "./sections/recent-projects";
 import Pricing from "@/app/[locale]/components/sections/Pricing";
@@ -166,7 +167,7 @@ export function PageContent() {
       <HeroSection />
 
       {/* 2. Why Choose Our Web Design Packages? */}
-      <WhyChooseUsSection />
+      <WhyChooseUsSection bannerImage={whyChooseBannerImg} />
 
       {/* 3. Our Step-by-Step Process for Building a Professional Website */}
       <StepProcessSection />
@@ -195,7 +196,7 @@ export function PageContent() {
       <CtaFormSection />
 
       {/* 11. FAQ Accordion */}
-      <Faq data={data.faqs} />
+      <Faq data={data.faqs} className="pb-0 lg:pb-[100px]" />
 
       {/* 12. Conclusion Section */}
       <ConclusionSection />

@@ -147,21 +147,28 @@ const CardPricing = ({ data } : { data: PricingCardDataProps }) => {
               asChild
               variant={'default'} 
               className={cn(
-                'text-body-small font-bold w-full h-[48px] rounded-full py-[14px] px-[16px] items-center justify-center gap-[8px] transition-all duration-200',
+                'w-full max-w-[360px] mx-auto h-[48px] rounded-full py-[12px] px-[24px] items-center justify-center gap-[5px] transition-all duration-200 font-manrope text-[14px] leading-[20px] font-bold tracking-[-0.01em]',
                 isGrowth 
                   ? 'bg-yellow hover:bg-yellow/90 text-navy shadow-md' 
                   : isScale
-                    ? 'border border-[#305CD8] bg-transparent hover:bg-[#305CD8]/20 text-white'
+                    ? 'bg-[rgba(15,64,151,0.6)] hover:bg-[rgba(15,64,151,0.8)] text-white shadow-[0px_9px_45px_rgba(0,95,200,0.17)] border-0'
                     : 'bg-[#0F4097] hover:bg-[#2196F3] text-white'
               )}
             >
                 <Link href={data.actionButton?.href || "/contact-us"}>
                   <span>{buttonLabel}</span>
-                  <svg className='w-[20px] h-[20px] shrink-0' width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg 
+                    className={cn(isScale ? 'w-[24px] h-[24px]' : 'w-[20px] h-[20px]', 'shrink-0')} 
+                    width={isScale ? "24" : "20"} 
+                    height={isScale ? "24" : "20"} 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                       <path 
                         d="M6 18L18 6M18 6H10M18 6V14" 
                         stroke={isGrowth ? "#092856" : "#ffffff"} 
-                        strokeWidth="2" 
+                        strokeWidth={isScale ? "1.5" : "2"} 
                         strokeLinecap="round" 
                         strokeLinejoin="round"
                       />

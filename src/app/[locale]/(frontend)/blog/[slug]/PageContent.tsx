@@ -42,8 +42,8 @@ export function SingleBlogPageContent({ slug }: SingleBlogPageContentProps) {
       {/* 2. Main 2-Column Reading Section */}
       <section className="container mx-auto px-4 max-w-[1240px] py-14 lg:py-20">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-          {/* Left Column: Sticky Sidebar (330px) */}
-          <aside className="w-full lg:w-[330px] flex-shrink-0 space-y-8 lg:sticky lg:top-28">
+          {/* Left Column: Sticky Sidebar (330px) - Hidden on mobile/tablet, shown on desktop */}
+          <aside className="hidden lg:block w-full lg:w-[330px] flex-shrink-0 space-y-8 lg:sticky lg:top-28">
             <TableOfContents />
             <SidebarContactForm />
           </aside>
@@ -56,9 +56,9 @@ export function SingleBlogPageContent({ slug }: SingleBlogPageContentProps) {
         </div>
       </section>
 
-      {/* 3. FAQ Section (Matched from Blog Page) */}
-      <section className="border-t border-[#EEF2F6] bg-white">
-        <Faq data={blogFaqData} />
+      {/* 3. FAQ Section (0 padding and margin on mobile so the SVG/banner seamlessly touches footer) */}
+      <section className="border-t border-[#EEF2F6] bg-white pb-0 mb-0">
+        <Faq data={blogFaqData} className="!pb-0 !mb-0 lg:!pb-[100px]" />
       </section>
     </div>
   );

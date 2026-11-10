@@ -1,0 +1,11 @@
+ক্রমিক	সেকশনের নাম	কম্পোনেন্ট	ফাইল লোকেশন
+১	Hero Section	<DigitalMarketingHero />	sections/hero/index.tsx
+২	Why Choose Us / Features	<DigitalMarketingFeatures />	sections/features/index.tsx
+৩	Our Step-by-Step Growth Process	<DigitalMarketingProcess />	sections/step-process/index.tsx
+৪	Recent Marketing Projects	<DigitalMarketingRecentProjects />	sections/recent-projects/index.tsx
+৫	Digital Marketing Transparent Pricing	<Pricing />	@/app/[locale]/components/sections/Pricing
+৬	Dynamic Comparison Table	<DigitalMarketingComparisonTable />	sections/comparison-table/index.tsx
+৭	Case Studies & Impact	<DigitalMarketingCaseStudies />	sections/case-studies/index.tsx
+৮	Client Testimonials & Feedback	<DigitalMarketingTestimonials />	sections/testimonials/index.tsx
+৯	Global FAQ Section & Question Banner	<Faq />	@/app/[locale]/components/sections/Faq
+

@@ -35,63 +35,62 @@ export default function CommentForm() {
   return (
     <section className="mt-12 pt-8 border-t border-[#EEF2F6]">
       {/* Heading */}
-      <h3 className="text-[26px] sm:text-[30px] font-bold text-navy font-dm-sans mb-1">
+      <h3 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-[#092856] font-dm-sans mb-2 leading-tight">
         Leave a comment
       </h3>
-      <p className="text-[14px] sm:text-[15px] text-[#64748B] font-manrope mb-8">
+      <p className="text-[15px] sm:text-[16px] text-[#495162] font-manrope mb-8">
         Quickly actualize flexible innovation with diverse resources.
       </p>
 
       {submitted ? (
-        <div className="p-5 bg-blue/10 border border-blue/20 rounded-[14px] text-navy text-[15px] font-manrope">
+        <div className="p-6 bg-blue/10 border border-blue/20 rounded-[14px] text-[#092856] text-[15px] font-manrope">
           Thank you! Your comment has been submitted and is awaiting moderation.
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-          {/* Name */}
-          <div>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
+          {/* Your Name */}
+          <div className="p-[1px] rounded-[10px] bg-gradient-to-r from-[#305CD8] to-[#903DD1]">
             <input
               type="text"
               required
               placeholder="Your Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-white border border-[#C7D2FE] rounded-[10px] px-5 py-3.5 text-[15px] text-navy placeholder-[#94A3B8] focus:outline-none focus:border-[#305CD8] focus:ring-1 focus:ring-[#305CD8] transition-colors"
+              className="w-full h-[60px] sm:h-[64px] bg-[#EEF2F9] rounded-[9px] px-6 text-[15px] sm:text-[16px] text-[#092856] placeholder-[#495162] font-manrope outline-none"
             />
           </div>
 
           {/* Email */}
-          <div>
+          <div className="p-[1px] rounded-[10px] bg-gradient-to-r from-[#305CD8] to-[#903DD1]">
             <input
               type="email"
               required
               placeholder="Email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full bg-white border border-[#C7D2FE] rounded-[10px] px-5 py-3.5 text-[15px] text-navy placeholder-[#94A3B8] focus:outline-none focus:border-[#305CD8] focus:ring-1 focus:ring-[#305CD8] transition-colors"
+              className="w-full h-[60px] sm:h-[64px] bg-[#EEF2F9] rounded-[9px] px-6 text-[15px] sm:text-[16px] text-[#092856] placeholder-[#495162] font-manrope outline-none"
             />
           </div>
 
-          {/* Phone */}
-          <div>
+          {/* Your phone */}
+          <div className="p-[1px] rounded-[10px] bg-gradient-to-r from-[#305CD8] to-[#903DD1]">
             <input
               type="tel"
               placeholder="Your phone"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full bg-white border border-[#C7D2FE] rounded-[10px] px-5 py-3.5 text-[15px] text-navy placeholder-[#94A3B8] focus:outline-none focus:border-[#305CD8] focus:ring-1 focus:ring-[#305CD8] transition-colors"
+              className="w-full h-[60px] sm:h-[64px] bg-[#EEF2F9] rounded-[9px] px-6 text-[15px] sm:text-[16px] text-[#092856] placeholder-[#495162] font-manrope outline-none"
             />
           </div>
 
           {/* Message */}
-          <div>
+          <div className="p-[1px] rounded-[10px] bg-gradient-to-r from-[#305CD8] to-[#903DD1]">
             <textarea
-              rows={5}
               required
               placeholder="Message"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full bg-white border border-[#C7D2FE] rounded-[10px] px-5 py-3.5 text-[15px] text-navy placeholder-[#94A3B8] focus:outline-none focus:border-[#305CD8] focus:ring-1 focus:ring-[#305CD8] transition-colors resize-none"
+              className="w-full h-[210px] sm:h-[235px] bg-[#EEF2F9] rounded-[9px] p-6 text-[15px] sm:text-[16px] text-[#092856] placeholder-[#495162] font-manrope outline-none resize-none block"
             />
           </div>
 
@@ -99,10 +98,10 @@ export default function CommentForm() {
           <div className="pt-2">
             <button
               type="submit"
-              className="inline-flex items-center gap-2 bg-[#305CD8] hover:bg-[#254bbd] text-white font-medium text-[15px] px-8 py-3.5 rounded-full shadow-[0_4px_16px_rgba(48,92,216,0.3)] hover:shadow-[0_6px_22px_rgba(48,92,216,0.4)] transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 h-[56px] sm:h-[60px] px-8 sm:px-9 rounded-full bg-[#305CD8] hover:bg-[#254cc0] active:scale-[0.98] text-white font-manrope font-semibold text-[15px] sm:text-[16px] shadow-[0_9px_45px_rgba(48,92,216,0.37)] hover:shadow-[0_12px_50px_rgba(48,92,216,0.5)] transition-all cursor-pointer"
             >
               <span>Post comment</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-5 h-5 text-white" strokeWidth={2} />
             </button>
           </div>
         </form>

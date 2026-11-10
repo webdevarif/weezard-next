@@ -20,7 +20,7 @@ import VrWorldImg from "../../../assets/recent_projects/project-vr-world.png";
 
 export const RecentProjectsGrid: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-11 items-stretch">
+    <div className="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-11 items-stretch">
       {/* Left Column: Big Showcase Card (Rolls Royce / Luxury Car) */}
       <div className="lg:col-span-5 flex flex-col">
         <ProjectShowcaseCard

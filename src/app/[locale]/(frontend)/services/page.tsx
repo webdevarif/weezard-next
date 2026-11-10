@@ -17,10 +17,17 @@ export async function generateMetadata({
 
   return generatePageMetadata(
     {
-      title: "Services",
-      description: "Explore our professional services and solutions",
+      title: "Professional Digital Solutions & Services for Growing Businesses",
+      description:
+        "Discover tailored web design, custom web development, and digital marketing services designed to scale your business and drive measurable growth.",
       path: "/services",
-      keywords: ["services", "solutions", "professional"],
+      keywords: [
+        "digital services",
+        "web design services",
+        "web development agency",
+        "digital marketing packages",
+        "small business IT solutions",
+      ],
     },
     locale
   );
@@ -38,4 +45,3 @@ export default function ServicesPage() {
     </BaseLayout>
   );
 }
-

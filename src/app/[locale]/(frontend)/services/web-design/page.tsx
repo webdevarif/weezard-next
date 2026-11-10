@@ -17,10 +17,18 @@ export async function generateMetadata({
 
   return generatePageMetadata(
     {
-      title: "All-In-One Web Design Packages for Small Businesses | Weezard",
-      description: "Professional website redesign and custom web development packages tailored to your brand, built to drive engagement, conversions, and measurable business growth.",
+      title: "All-In-One Web Design Packages for Small Businesses",
+      description:
+        "Custom web design and redesign packages tailored to your brand, crafted to boost user engagement, conversion rates, and measurable business growth.",
       path: "/services/web-design",
-      keywords: ["web design", "small business website", "ui/ux design", "redesign packages", "responsive web design"],
+      keywords: [
+        "web design",
+        "small business website",
+        "ui/ux design",
+        "website redesign",
+        "responsive web design",
+        "custom web design",
+      ],
     },
     locale
   );

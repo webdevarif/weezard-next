@@ -8,13 +8,19 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { Link } from "@/lib/i18n/routing";
 import { fadeInUp } from "@/lib/animations/framer";
-import WhyChoosePhoto from "../assets/why-choose-banner.jpg";
+import DefaultWhyChoosePhoto from "../../../assets/why_choose_us/why-choose-banner.png";
 
-export const WhyChooseUsBanner: React.FC = () => {
+interface WhyChooseUsBannerProps {
+  bannerImage?: StaticImageData | string;
+}
+
+export const WhyChooseUsBanner: React.FC<WhyChooseUsBannerProps> = ({
+  bannerImage = DefaultWhyChoosePhoto,
+}) => {
   return (
     <motion.div
       variants={fadeInUp}
@@ -25,7 +31,7 @@ export const WhyChooseUsBanner: React.FC = () => {
     >
       {/* High-Resolution Team Collaboration Photo */}
       <Image
-        src={WhyChoosePhoto}
+        src={bannerImage}
         alt="Weezard Web Design Team Collaboration"
         fill
         priority

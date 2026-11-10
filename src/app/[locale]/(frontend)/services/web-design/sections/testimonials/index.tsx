@@ -9,6 +9,8 @@ import {
   TestimonialArrowButton,
   PaginationDots,
 } from "./components/TestimonialControls";
+import TestimonialsMobileCarousel from "./components/TestimonialsMobileCarousel";
+import TestimonialsBottomCta from "./components/TestimonialsBottomCta";
 
 /**
  * TestimonialsSection Component
@@ -17,11 +19,9 @@ import {
  * Positioned directly after the Case Study section on the Web Design service page.
  * Features:
  * - Clean ice-blue background fill: #EEF2F9
- * - Header with value proposition and "See More Reviews ↗" CTA
- * - Left 4.9 Rating Card with 3D stars bubble graphic
- * - Interactive carousel with 2 visible review cards side-by-side on desktop
- * - Floating circular Prev/Next buttons (normal: outlined, hover: solid navy)
- * - Bottom pagination dots
+ * - Header with value proposition
+ * - Desktop: 3-Card Interactive Carousel Layout (4.9 vertical card + 2 review cards + floating prev/next)
+ * - Mobile: Stacked layout with horizontal rating banner, peek swipe carousel, and full-width bottom CTA
  */
 
 export const TestimonialsSection: React.FC = () => {
@@ -42,7 +42,7 @@ export const TestimonialsSection: React.FC = () => {
   const secondCard = TESTIMONIALS[(currentIndex + 1) % total];
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-28 bg-[#EEF2F9] overflow-hidden">
+    <section className="relative py-14 md:py-24 lg:py-28 bg-[#EEF2F9] overflow-hidden">
       {/* Background Soft Glow Accents */}
       <div
         className="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-blue-100/50 blur-[130px] pointer-events-none"
@@ -57,15 +57,15 @@ export const TestimonialsSection: React.FC = () => {
         {/* Section Header */}
         <TestimonialsHeader />
 
-        {/* 3-Card Interactive Carousel Layout */}
-        <div className="relative flex flex-col lg:flex-row items-stretch gap-6 lg:gap-8">
+        {/* Desktop View (3-Card Layout with floating prev/next) */}
+        <div className="hidden lg:flex items-stretch gap-6 lg:gap-8 relative">
           {/* 1. Left Accent Card (4.9 Rating Card) */}
-          <RatingBadgeCard />
+          <RatingBadgeCard variant="desktop" />
 
           {/* 2. Right Reviews Carousel Wrapper */}
           <div className="relative flex-1 min-w-0">
             {/* Floating Prev Button (Left) */}
-            <div className="hidden lg:block absolute -left-7 top-1/2 -translate-y-1/2 z-20">
+            <div className="absolute -left-7 top-1/2 -translate-y-1/2 z-20">
               <TestimonialArrowButton
                 direction="prev"
                 onClick={handlePrev}
@@ -73,21 +73,18 @@ export const TestimonialsSection: React.FC = () => {
               />
             </div>
 
-            {/* Testimonials Grid (2 cards visible on desktop, 1 on mobile) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 h-full">
-              {/* Card 1 */}
+            {/* Testimonials Grid (2 cards visible on desktop) */}
+            <div className="grid grid-cols-2 gap-6 lg:gap-8 h-full">
               <div className="h-full">
                 <TestimonialCard testimonial={firstCard} />
               </div>
-
-              {/* Card 2 (hidden on small mobile if desired, or responsive grid) */}
-              <div className="h-full hidden md:block">
+              <div className="h-full">
                 <TestimonialCard testimonial={secondCard} />
               </div>
             </div>
 
             {/* Floating Next Button (Right) */}
-            <div className="hidden lg:block absolute -right-7 top-1/2 -translate-y-1/2 z-20">
+            <div className="absolute -right-7 top-1/2 -translate-y-1/2 z-20">
               <TestimonialArrowButton
                 direction="next"
                 onClick={handleNext}
@@ -97,26 +94,26 @@ export const TestimonialsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Arrow Controls (visible on screens < 1024px) */}
-        <div className="flex lg:hidden items-center justify-center gap-4 mt-8">
-          <TestimonialArrowButton
-            direction="prev"
-            onClick={handlePrev}
-            ariaLabel="Previous Testimonials"
-          />
-          <TestimonialArrowButton
-            direction="next"
-            onClick={handleNext}
-            ariaLabel="Next Testimonials"
+        {/* Desktop Bottom Pagination Dots */}
+        <div className="hidden lg:block mt-8">
+          <PaginationDots
+            total={total}
+            currentIndex={currentIndex}
+            onSelect={setCurrentIndex}
           />
         </div>
 
-        {/* Bottom Pagination Dots */}
-        <PaginationDots
-          total={total}
-          currentIndex={currentIndex}
-          onSelect={setCurrentIndex}
-        />
+        {/* Mobile View (< lg) */}
+        <div className="block lg:hidden space-y-5">
+          {/* 1. Horizontal Rating Badge Card */}
+          <RatingBadgeCard variant="mobile" />
+
+          {/* 2. Horizontal Peek Carousel */}
+          <TestimonialsMobileCarousel />
+
+          {/* 3. Full-Width Bottom CTA Button */}
+          <TestimonialsBottomCta />
+        </div>
       </div>
     </section>
   );
